@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>長野県150周年記念 - B案</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <h1>長野県150周年記念事業</h1>
+            <span class="shinshu-tagline">SHINSHU / 信州</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">150周年について</a></li>
+                <li><a href="#values">5つの価値</a></li>
+                <li><a href="#events">イベント</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+        <div id="p5-canvas-container"></div>
+        <div class="hero-text">
+            <h2>
+                <span class="phrase">自らを知り</span>
+                <span class="phrase">互いを知り</span>
+                <span class="phrase">高め合おう</span>
+            </h2>
+            <p><span class="phrase">私たちの長野県</span></p>
+        </div>
+        <button id="animation-control-btn" aria-label="背景アニメーションを一時停止">
+            <span class="icon-pause"></span>
+        </button>
+        <!-- アクセシビリティ改善: アニメーションの説明と制御 -->
+        <div class="sr-only" role="region" aria-live="polite">
+            <p id="animation-description">このセクションの背景には、長野県の豊かな自然を表現した動的なパーティクルアニメーションが表示されています。</p>
+        </div>
+        <div class="animation-toggle-container">
+            <input type="checkbox" id="animation-toggle" checked aria-describedby="animation-description">
+            <label for="animation-toggle">背景アニメーションを有効にする</label>
+        </div>
+        </section>
+    </main>
+    <script src="js/sketch.js"></script>
+</body>
+</html>

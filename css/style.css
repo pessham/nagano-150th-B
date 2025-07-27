@@ -1,0 +1,238 @@
+/* Design Tokens */
+:root {
+    --color-primary-dark: #004d40;
+    --color-accent-gold: #8B4513; /* SaddleBrown - よりコントラストの高いゴールド */
+    --color-text-dark: #212121;
+    --color-text-light: #fdfdfd;
+    --spacing-md: 24px;
+    --spacing-xl: 48px;
+    --shadow-card: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* ヘッダー */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-card);
+}
+
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header-brand h1 {
+    font-size: 1.8rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 0.2rem;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.shinshu-tagline {
+    font-family: sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent-gold);
+    opacity: 0.8;
+    border-left: 2px solid var(--color-accent-gold);
+    padding-left: 8px;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav li {
+    margin-left: 32px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+    outline: none;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-gold);
+    transition: width 0.3s ease;
+}
+
+header nav a:hover::after,
+header nav a:focus::after {
+    width: 100%;
+}
+
+header nav a:focus {
+    outline: 2px solid var(--color-accent-gold);
+    outline-offset: 2px;
+}
+
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    margin-top: 80px; /* ヘッダーの高さ分オフセット */
+}
+
+#p5-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* アクセシビリティ改善: 視覚的に隠すがスクリーンリーダーには読み上げさせる */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* アクセシビリティ改善: アニメーション制御チェックボックスのスタイル */
+.animation-toggle-container {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 10;
+    color: white;
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.5); /* 半透明の背景 */
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.animation-toggle-container input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* チェックボックスを少し大きく */
+}
+
+.animation-toggle-container label {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* ヒーローテキストのコントラスト改善 */
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 0; /* 最前面 */
+    /* 半透明の背景を削除 */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.hero-text h2 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    /* より強調された黒いアウトラインと影 */
+    text-shadow: 3px 3px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 0 0 20px rgba(0,0,0,0.9);
+}
+
+.hero-text p {
+    font-size: 2rem;
+    font-weight: 700;
+    /* より強調された黒いアウトラインと影 */
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 0 15px rgba(0,0,0,0.9);
+    margin-top: 1em;
+}
+
+.hero-text .phrase {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero-text h2 .phrase {
+    margin: 0 0.5em;
+}
+
+/* PC表示で改行しないようにする */
+@media (min-width: 768px) {
+    .hero-text h2 {
+        white-space: nowrap;
+    }
+}
+
+#animation-control-btn {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none; /* デフォルトのアウトラインを消す */
+}
+
+#animation-control-btn:focus {
+    outline: 2px solid #3f51b5; /* フォーカス時のアウトライン */
+    outline-offset: 2px;
+}
+
+#animation-control-btn .icon-pause {
+    width: 20px;
+    height: 20px;
+    border-left: 7px solid #333;
+    border-right: 7px solid #333;
+}
+
+#animation-control-btn .icon-play {
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #333;
+    margin-left: 5px;
+}
