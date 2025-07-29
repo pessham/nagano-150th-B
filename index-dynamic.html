@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>長野県150周年記念事業 - 自らを知り 互いを知り 高め合おう</title>
+    <meta name="description" content="1876年から150年。私たちの長野県が歩んできた融合と調和の歴史を、未来への新たな出発点として。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@300;400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dynamic.css">
+</head>
+<body>
+
+    <!-- メインヘッダー -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-brand">
+                <h1 class="brand-title">長野県150周年記念事業</h1>
+                <span class="brand-subtitle">NAGANO PREFECTURE 150TH ANNIVERSARY</span>
+            </div>
+            <nav class="main-navigation">
+                <a href="#concept" class="nav-link">事業について</a>
+                <a href="#values" class="nav-link">5つの価値</a>
+                <a href="#history" class="nav-link">歩み</a>
+                <a href="#events" class="nav-link">イベント</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ダイナミックヒーローセクション -->
+    <section class="hero-section">
+        
+        <!-- 左側：大型イラストエリア -->
+        <div class="hero-visual-area">
+            <div class="main-illustration">
+                <img src="assets/colorflu_image.png" alt="長野県5つの価値の融合" class="hero-illustration">
+                
+                <!-- イラスト上のインタラクティブポイント -->
+                <div class="interactive-points">
+                    <div class="point point-nature" data-value="nature" style="top: 25%; left: 15%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                        <div class="point-label">自然</div>
+                    </div>
+                    <div class="point point-culture" data-value="culture" style="top: 20%; right: 20%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                        <div class="point-label">風土</div>
+                    </div>
+                    <div class="point point-community" data-value="community" style="bottom: 30%; left: 25%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                        <div class="point-label">居場所</div>
+                    </div>
+                    <div class="point point-learning" data-value="learning" style="bottom: 25%; right: 15%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                        <div class="point-label">学び</div>
+                    </div>
+                    <div class="point point-craftsmanship" data-value="craftsmanship" style="top: 50%; left: 40%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                        <div class="point-label">技</div>
+                    </div>
+                </div>
+                
+                <!-- 年表オーバーレイ -->
+                <div class="timeline-overlay">
+                    <div class="timeline-years">
+                        <span class="year-marker start">1876</span>
+                        <div class="year-line"></div>
+                        <span class="year-marker current">2026</span>
+                    </div>
+                    <div class="timeline-description">150年の融合</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 右側：メッセージエリア -->
+        <div class="hero-message-area">
+            <div class="message-container">
+                
+                <!-- メインメッセージ -->
+                <div class="main-message">
+                    <h2 class="primary-message">
+                        <span class="message-line line-1">自らを知り</span>
+                        <span class="message-line line-2">互いを知り</span>
+                        <span class="message-line line-3">高め合おう</span>
+                    </h2>
+                    <p class="secondary-message">私たちの長野県</p>
+                </div>
+                
+                <!-- コンセプト説明 -->
+                <div class="concept-description">
+                    <p class="description-text">
+                        150年前、筑摩県と長野県が一つになって生まれた私たちの県。
+                        多様な地域と文化が融合し、新たな価値を創造し続けています。
+                    </p>
+                    <p class="description-text">
+                        山々が連なる長野県では、山あいの集落ごとに独自性ある文化や地域性が育まれ、
+                        南北に広い県土の各地に高いポテンシャルを持つさまざまな魅力が存在しています。
+                    </p>
+                </div>
+                
+                <!-- 5つの価値カード（コンパクト版） -->
+                <div class="values-preview">
+                    <h3 class="values-title">長野が持つべき5つの価値</h3>
+                    <div class="values-cards">
+                        <div class="value-card-mini" data-value="nature">
+                            <div class="card-icon nature-icon"></div>
+                            <div class="card-content">
+                                <h4 class="card-title">自然を守り共に生きる</h4>
+                                <span class="card-subtitle">PROTECTING NATURE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="value-card-mini" data-value="culture">
+                            <div class="card-icon culture-icon"></div>
+                            <div class="card-content">
+                                <h4 class="card-title">多彩な風土で魅力を育む</h4>
+                                <span class="card-subtitle">DIVERSE CULTURE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="value-card-mini" data-value="community">
+                            <div class="card-icon community-icon"></div>
+                            <div class="card-content">
+                                <h4 class="card-title">みんなに居場所と出番をつくる</h4>
+                                <span class="card-subtitle">INCLUSIVE COMMUNITY</span>
+                            </div>
+                        </div>
+                        
+                        <div class="value-card-mini" data-value="learning">
+                            <div class="card-icon learning-icon"></div>
+                            <div class="card-content">
+                                <h4 class="card-title">一人ひとりの学びたいを叶える</h4>
+                                <span class="card-subtitle">LIFELONG LEARNING</span>
+                            </div>
+                        </div>
+                        
+                        <div class="value-card-mini" data-value="craftsmanship">
+                            <div class="card-icon craftsmanship-icon"></div>
+                            <div class="card-content">
+                                <h4 class="card-title">確かな技で世界を変える</h4>
+                                <span class="card-subtitle">INNOVATIVE CRAFTSMANSHIP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- アクションボタン -->
+                <div class="hero-actions">
+                    <a href="#values" class="btn-primary">5つの価値を詳しく</a>
+                    <a href="#events" class="btn-secondary">イベント情報</a>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- スクロールインジケーター -->
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text">SCROLL</span>
+        </div>
+        
+    </section>
+
+    <!-- 詳細な5つの価値セクション -->
+    <section class="values-detail-section" id="values">
+        <div class="values-container">
+            <div class="section-header">
+                <h3 class="section-title">長野が持つべき5つの価値</h3>
+                <p class="section-subtitle">FIVE CORE VALUES</p>
+                <p class="section-description">
+                    これらの価値は、150年の歴史の中で育まれ、
+                    これからの150年を切り拓いていく私たちの指針です。
+                </p>
+            </div>
+            
+            <div class="values-grid">
+                <!-- 自然 -->
+                <article class="value-card-full" data-value="nature">
+                    <div class="card-visual">
+                        <div class="card-icon-large nature-icon"></div>
+                        <div class="card-pattern"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h4 class="card-title">自然を守り共に生きる</h4>
+                            <span class="card-subtitle">PROTECTING NATURE</span>
+                        </div>
+                        <p class="card-description">
+                            豊かな山々や清らかな水に育まれた、長野県の雄大な自然環境。
+                            この恵みを次世代に継承し、自然と調和した暮らしを築いています。
+                            四季を通じて美しい景観が広がり、多様な生態系が息づく長野県は、
+                            環境保護と持続可能な発展のモデル地域として注目されています。
+                        </p>
+                        <div class="card-examples">
+                            <span class="example-tag">環境保護活動</span>
+                            <span class="example-tag">自然体験学習</span>
+                            <span class="example-tag">エコツーリズム</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 風土 -->
+                <article class="value-card-full" data-value="culture">
+                    <div class="card-visual">
+                        <div class="card-icon-large culture-icon"></div>
+                        <div class="card-pattern"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h4 class="card-title">多彩な風土で魅力を育む</h4>
+                            <span class="card-subtitle">DIVERSE CULTURE</span>
+                        </div>
+                        <p class="card-description">
+                            南北に広がる77の市町村がそれぞれ持つ、多様な食文化や地域の魅力。
+                            この多彩さが長野県の豊かさを生み出しています。
+                            信州そば、りんご、ワインなど、風土に根ざした食文化から、
+                            伝統工芸、祭りまで、地域ごとの個性が光ります。
+                        </p>
+                        <div class="card-examples">
+                            <span class="example-tag">郷土料理</span>
+                            <span class="example-tag">伝統工芸</span>
+                            <span class="example-tag">地域祭り</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 居場所 -->
+                <article class="value-card-full" data-value="community">
+                    <div class="card-visual">
+                        <div class="card-icon-large community-icon"></div>
+                        <div class="card-pattern"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h4 class="card-title">みんなに居場所と出番をつくる</h4>
+                            <span class="card-subtitle">INCLUSIVE COMMUNITY</span>
+                        </div>
+                        <p class="card-description">
+                            多様な背景を持つ人々が活躍できる包括的な社会。
+                            一人ひとりが大切にされ、力を発揮できる環境を育んでいます。
+                            年齢、性別、国籍、障がいの有無に関わらず、
+                            すべての人が自分らしく生きられる共生社会を目指しています。
+                        </p>
+                        <div class="card-examples">
+                            <span class="example-tag">多文化共生</span>
+                            <span class="example-tag">バリアフリー</span>
+                            <span class="example-tag">世代間交流</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 学び -->
+                <article class="value-card-full" data-value="learning">
+                    <div class="card-visual">
+                        <div class="card-icon-large learning-icon"></div>
+                        <div class="card-pattern"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h4 class="card-title">一人ひとりの学びたいを叶える</h4>
+                            <span class="card-subtitle">LIFELONG LEARNING</span>
+                        </div>
+                        <p class="card-description">
+                            生涯にわたる学び直しや、新たな挑戦ができる教育環境。
+                            探求心を大切にし、成長し続ける文化を築いています。
+                            信州大学をはじめとする高等教育機関から、
+                            公民館活動まで、学びの機会が豊富に用意されています。
+                        </p>
+                        <div class="card-examples">
+                            <span class="example-tag">生涯学習</span>
+                            <span class="example-tag">職業訓練</span>
+                            <span class="example-tag">研究開発</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 技 -->
+                <article class="value-card-full" data-value="craftsmanship">
+                    <div class="card-visual">
+                        <div class="card-icon-large craftsmanship-icon"></div>
+                        <div class="card-pattern"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h4 class="card-title">確かな技で世界を変える</h4>
+                            <span class="card-subtitle">INNOVATIVE CRAFTSMANSHIP</span>
+                        </div>
+                        <p class="card-description">
+                            古くから受け継がれてきた、伝統的な「ものづくり」の技術力。
+                            その先進性で世界に新たな価値を提供し続けています。
+                            精密機械、電子部品から伝統工芸まで、
+                            匠の技術と最新技術の融合が長野県の強みです。
+                        </p>
+                        <div class="card-examples">
+                            <span class="example-tag">精密機械</span>
+                            <span class="example-tag">伝統工芸</span>
+                            <span class="example-tag">イノベーション</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA セクション -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-content">
+                <h3 class="cta-title">150年の歩みを共に</h3>
+                <p class="cta-description">
+                    あなたも長野県150周年記念事業に参加し、<br>
+                    新たな150年の始まりを一緒に創造しませんか。
+                </p>
+                <div class="cta-buttons">
+                    <a href="#events" class="btn-primary">イベント情報</a>
+                    <a href="#about" class="btn-secondary">事業について</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/dynamic.js"></script>
+</body>
+</html>

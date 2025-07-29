@@ -1,0 +1,1038 @@
+/* 長野県150周年記念事業 - ダイナミック大型デザイン */
+
+/* ========================================
+   CSS Custom Properties (Design Tokens)
+======================================== */
+:root {
+  /* 5つの価値に基づく色彩システム */
+  --color-nature: #1B4D3E;        /* 深い森の緑 */
+  --color-culture: #D4A574;       /* 温かな土の色 */
+  --color-community: #8B4513;     /* 包容の茶色 */
+  --color-learning: #4A5568;      /* 知性の青灰 */
+  --color-craftsmanship: #2C5282; /* 技術の紺色 */
+  
+  /* ニュートラルカラー */
+  --color-primary-text: #1A202C;
+  --color-secondary-text: #4A5568;
+  --color-tertiary-text: #718096;
+  --color-background: #FFFEF7;
+  --color-background-soft: #FAF9F4;
+  --color-white: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-accent: #D69E2E;
+  
+  /* タイポグラフィシステム */
+  --font-primary: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  --font-secondary: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  --font-english: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* スペーシングシステム */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 0.75rem;   /* 12px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  --space-5xl: 8rem;     /* 128px */
+  
+  /* レイアウト */
+  --container-max-width: 1400px;
+  --container-padding: var(--space-xl);
+  
+  /* アニメーション */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  
+  /* シャドウシステム */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================
+   Reset & Base Styles
+======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-primary-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================================
+   Header - シンプル化
+======================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 254, 247, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.header-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-title {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-primary-text);
+  letter-spacing: -0.02em;
+}
+
+.brand-subtitle {
+  font-family: var(--font-english);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+  display: block;
+}
+
+.main-navigation {
+  display: flex;
+  gap: var(--space-2xl);
+}
+
+.nav-link {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+  text-decoration: none;
+  transition: color var(--duration-normal) var(--ease-out);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--color-primary-text);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   Hero Section - ダイナミック分割レイアウト
+======================================== */
+.hero-section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  position: relative;
+  background: linear-gradient(135deg, 
+    var(--color-background) 0%, 
+    var(--color-background-soft) 100%);
+}
+
+/* ========================================
+   左側：大型イラストエリア
+======================================== */
+.hero-visual-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4xl) var(--space-xl);
+  background: linear-gradient(135deg, 
+    rgba(255, 254, 247, 0.8) 0%, 
+    rgba(250, 249, 244, 0.9) 100%);
+}
+
+.main-illustration {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.05) saturate(1.1);
+  opacity: 0;
+  transform: scale(0.95) translateY(30px);
+  animation: heroImageAppear 1.5s var(--ease-out) 0.3s forwards;
+  transition: all var(--duration-slow) var(--ease-out);
+}
+
+.hero-illustration:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08) saturate(1.15);
+}
+
+/* インタラクティブポイント */
+.interactive-points {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.point {
+  position: absolute;
+  pointer-events: all;
+  cursor: pointer;
+  opacity: 0;
+  animation: pointAppear 0.8s var(--ease-out) forwards;
+}
+
+.point:nth-child(1) { animation-delay: 1.5s; }
+.point:nth-child(2) { animation-delay: 1.7s; }
+.point:nth-child(3) { animation-delay: 1.9s; }
+.point:nth-child(4) { animation-delay: 2.1s; }
+.point:nth-child(5) { animation-delay: 2.3s; }
+
+.point-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(214, 158, 46, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.point-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 3px solid var(--color-accent);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.point-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 35px));
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary-text);
+  background: rgba(255, 255, 255, 0.95);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translate(-50%, calc(-50% - 25px)) scale(0.9);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* 各価値の色設定 */
+.point-nature .point-dot { border-color: var(--color-nature); }
+.point-culture .point-dot { border-color: var(--color-culture); }
+.point-community .point-dot { border-color: var(--color-community); }
+.point-learning .point-dot { border-color: var(--color-learning); }
+.point-craftsmanship .point-dot { border-color: var(--color-craftsmanship); }
+
+.point:hover .point-dot {
+  transform: translate(-50%, -50%) scale(1.3);
+  box-shadow: 0 0 30px rgba(214, 158, 46, 0.4);
+}
+
+.point:hover .point-label {
+  opacity: 1;
+  transform: translate(-50%, calc(-50% - 35px)) scale(1);
+}
+
+/* 年表オーバーレイ */
+.timeline-overlay {
+  position: absolute;
+  top: var(--space-xl);
+  left: var(--space-xl);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--space-lg);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: timelineAppear 0.8s var(--ease-out) 2.5s forwards;
+}
+
+.timeline-years {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.year-marker {
+  font-family: var(--font-english);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-tertiary-text);
+}
+
+.year-marker.current {
+  color: var(--color-accent);
+}
+
+.year-line {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, 
+    var(--color-tertiary-text) 0%, 
+    var(--color-accent) 100%);
+  border-radius: 2px;
+}
+
+.timeline-description {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+}
+
+/* ========================================
+   右側：メッセージエリア
+======================================== */
+.hero-message-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--space-4xl) var(--space-2xl);
+  background: var(--color-white);
+  box-shadow: inset 4px 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.message-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* メインメッセージ */
+.main-message {
+  margin-bottom: var(--space-3xl);
+}
+
+.primary-message {
+  font-family: var(--font-primary);
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-primary-text);
+  margin: 0 0 var(--space-xl) 0;
+  letter-spacing: -0.03em;
+}
+
+.message-line {
+  display: block;
+  opacity: 0;
+  transform: translateX(30px);
+  animation: messageSlideIn 0.8s var(--ease-out) forwards;
+}
+
+.line-1 { animation-delay: 1.0s; }
+.line-2 { animation-delay: 1.3s; }
+.line-3 { 
+  animation-delay: 1.6s; 
+  color: var(--color-accent);
+  font-weight: 900;
+}
+
+.secondary-message {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+  margin: 0 0 var(--space-2xl) 0;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: messageSlideIn 0.8s var(--ease-out) 2.0s forwards;
+}
+
+/* コンセプト説明 */
+.concept-description {
+  margin-bottom: var(--space-3xl);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: conceptAppear 0.8s var(--ease-out) 2.4s forwards;
+}
+
+.description-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-secondary-text);
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.description-text:last-child {
+  margin-bottom: 0;
+}
+
+/* 5つの価値プレビュー */
+.values-preview {
+  margin-bottom: var(--space-3xl);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: valuesPreviewAppear 0.8s var(--ease-out) 2.8s forwards;
+}
+
+.values-title {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary-text);
+  margin: 0 0 var(--space-lg) 0;
+  letter-spacing: -0.02em;
+}
+
+.values-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.value-card-mini {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-background-soft);
+  border-radius: 12px;
+  transition: all var(--duration-normal) var(--ease-out);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.value-card-mini:hover {
+  transform: translateX(8px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.nature-icon {
+  background: linear-gradient(135deg, var(--color-nature), #2D6B4F);
+}
+
+.culture-icon {
+  background: linear-gradient(135deg, var(--color-culture), #E6B885);
+}
+
+.community-icon {
+  background: linear-gradient(135deg, var(--color-community), #A0522D);
+}
+
+.learning-icon {
+  background: linear-gradient(135deg, var(--color-learning), #5A6B7D);
+}
+
+.craftsmanship-icon {
+  background: linear-gradient(135deg, var(--color-craftsmanship), #3C6BA5);
+}
+
+.card-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+}
+
+.card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-title {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary-text);
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1.3;
+}
+
+.card-subtitle {
+  font-family: var(--font-english);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-tertiary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* アクションボタン */
+.hero-actions {
+  display: flex;
+  gap: var(--space-lg);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: actionsAppear 0.8s var(--ease-out) 3.2s forwards;
+}
+
+.btn-primary,
+.btn-secondary {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all var(--duration-normal) var(--ease-out);
+  border: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: #E6A432;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-secondary-text);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-background-soft);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* スクロールインジケーター */
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-2xl);
+  right: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  opacity: 0;
+  animation: scrollIndicatorAppear 0.8s var(--ease-out) 3.8s forwards;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, 
+    transparent 0%, 
+    var(--color-tertiary-text) 50%, 
+    transparent 100%);
+  animation: scrollLineMove 2s ease-in-out infinite;
+}
+
+.scroll-text {
+  font-family: var(--font-english);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-tertiary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* ========================================
+   詳細な5つの価値セクション
+======================================== */
+.values-detail-section {
+  padding: var(--space-5xl) var(--container-padding);
+  background: var(--color-background-soft);
+}
+
+.values-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-primary-text);
+  margin: 0 0 var(--space-md) 0;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-family: var(--font-english);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-tertiary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-secondary-text);
+  margin: 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-2xl);
+}
+
+/* 詳細価値カード */
+.value-card-full {
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+.value-card-full:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-visual {
+  position: relative;
+  height: 120px;
+  margin-bottom: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.card-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-icon-large::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+}
+
+.card-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.1) 25%, 
+    transparent 25%, 
+    transparent 75%, 
+    rgba(255, 255, 255, 0.1) 75%);
+  background-size: 20px 20px;
+  opacity: 0.3;
+}
+
+.card-header {
+  margin-bottom: var(--space-lg);
+}
+
+.value-card-full .card-title {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary-text);
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1.3;
+}
+
+.value-card-full .card-subtitle {
+  font-family: var(--font-english);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-tertiary-text);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.value-card-full .card-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-secondary-text);
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.card-examples {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.example-tag {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-secondary-text);
+  background: var(--color-background-soft);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+}
+
+/* ========================================
+   CTA Section
+======================================== */
+.cta-section {
+  padding: var(--space-5xl) var(--container-padding);
+  background: linear-gradient(135deg, 
+    var(--color-primary-text) 0%, 
+    #2D3748 100%);
+  color: var(--color-white);
+}
+
+.cta-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-title {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 0 var(--space-xl) 0;
+  letter-spacing: -0.02em;
+}
+
+.cta-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 var(--space-2xl) 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-section .btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.cta-section .btn-secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cta-section .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   アニメーション定義
+======================================== */
+@keyframes heroImageAppear {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pointAppear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.2;
+  }
+}
+
+@keyframes timelineAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes conceptAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes valuesPreviewAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes actionsAppear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollIndicatorAppear {
+  to {
+    opacity: 0.7;
+  }
+}
+
+@keyframes scrollLineMove {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+/* ========================================
+   レスポンシブデザイン
+======================================== */
+@media (max-width: 1024px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .hero-visual-area {
+    order: 1;
+    padding: var(--space-3xl) var(--space-lg);
+  }
+  
+  .hero-message-area {
+    order: 2;
+    padding: var(--space-3xl) var(--space-lg);
+    box-shadow: none;
+  }
+  
+  .main-illustration {
+    max-width: 500px;
+    height: 500px;
+  }
+  
+  .primary-message {
+    font-size: 2.5rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: var(--space-lg);
+  }
+  
+  .header-container {
+    padding: var(--space-md) var(--container-padding);
+  }
+  
+  .brand-title {
+    font-size: 1.1rem;
+  }
+  
+  .main-navigation {
+    gap: var(--space-lg);
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+  }
+  
+  .hero-visual-area,
+  .hero-message-area {
+    padding: var(--space-2xl) var(--container-padding);
+  }
+  
+  .main-illustration {
+    max-width: 400px;
+    height: 400px;
+  }
+  
+  .primary-message {
+    font-size: 2rem;
+  }
+  
+  .secondary-message {
+    font-size: 1.5rem;
+  }
+  
+  .values-cards {
+    gap: var(--space-sm);
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .cta-title {
+    font-size: 2.2rem;
+  }
+  
+  .timeline-overlay {
+    top: var(--space-lg);
+    left: var(--space-lg);
+    right: var(--space-lg);
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-illustration {
+    max-width: 320px;
+    height: 320px;
+  }
+  
+  .primary-message {
+    font-size: 1.8rem;
+  }
+  
+  .secondary-message {
+    font-size: 1.3rem;
+  }
+  
+  .point-label {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+  
+  .interactive-points .point {
+    transform: scale(0.8);
+  }
+}
