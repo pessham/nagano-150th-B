@@ -286,20 +286,45 @@ img {
   align-items: center;
   text-align: center;
   padding: var(--space-lg);
-  background: rgba(255, 255, 255, 0.9);
   border-radius: 16px;
   box-shadow: var(--shadow-md);
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
   min-width: 180px;
   max-width: 220px;
-  border: 2px solid transparent;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  font-weight: 600;
+}
+
+/* 各カードの背景色 */
+.value-card-top-left[data-value="craftsmanship"] {
+  background: #05C7F3;
+}
+
+.value-card-top-center[data-value="culture"] {
+  background: #EC25A7;
+}
+
+.value-card-top-right[data-value="community"] {
+  background: #F7E106;
+  color: #333;
+}
+
+.value-card-bottom-left[data-value="learning"] {
+  background: #F9595C;
+}
+
+.value-card-bottom-right[data-value="nature"] {
+  background: #8AE108;
+  color: #333;
 }
 
 .value-card-positioned:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: var(--shadow-xl);
-  border-color: var(--color-accent);
+  border-color: rgba(255, 255, 255, 1);
+  filter: brightness(1.1) saturate(1.2);
 }
 
 /* 各カードの位置 */
