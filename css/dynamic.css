@@ -4,38 +4,61 @@
    CSS Custom Properties (Design Tokens)
 ======================================== */
 :root {
-  /* 5つの価値に基づく色彩システム */
-  --color-nature: #1B4D3E;        /* 深い森の緑 */
-  --color-culture: #D4A574;       /* 温かな土の色 */
-  --color-community: #8B4513;     /* 包容の茶色 */
-  --color-learning: #4A5568;      /* 知性の青灰 */
-  --color-craftsmanship: #2C5282; /* 技術の紺色 */
+  /* イラストから抽出した華やかな9色カラーシステム */
+  --color-nature: #2E5D47;        /* 深い緑 - 自然 */
+  --color-culture: #E8A852;       /* 明るい黄橙 - 文化・風土 */
+  --color-community: #C95B3C;     /* 温かい赤橙 - コミュニティ */
+  --color-learning: #4A7BA7;      /* 知的な青 - 学び */
+  --color-craftsmanship: #6B4C93; /* 技術の紫 - 技・匠 */
   
-  /* ニュートラルカラー */
-  --color-primary-text: #1A202C;
-  --color-secondary-text: #4A5568;
-  --color-tertiary-text: #718096;
-  --color-background: #FFFEF7;
-  --color-background-soft: #FAF9F4;
+  /* 追加カラフル色 */
+  --color-vibrant-green: #4CAF50; /* 鮮やかな緑 */
+  --color-bright-orange: #FF9800; /* 明るいオレンジ */
+  --color-warm-red: #F44336;      /* 温かい赤 */
+  --color-sky-blue: #2196F3;      /* 空の青 */
+  
+  /* カラフル背景・グラデーション用 */
+  --color-primary-text: #2C3E50;
+  --color-secondary-text: #34495E;
+  --color-tertiary-text: #7F8C8D;
+  --color-background: #FFF8E1;     /* 温かいクリーム色 */
+  --color-background-soft: #FFF3C4; /* より華やかなソフト背景 */
   --color-white: #FFFFFF;
-  --color-border: #E2E8F0;
-  --color-accent: #D69E2E;
+  --color-border: #FFE0B2;         /* 温かい境界線 */
+  --color-accent: #FF6F00;         /* 鮮やかなアクセント */
   
   /* タイポグラフィシステム */
   --font-primary: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
   --font-secondary: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
   --font-english: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
-  /* スペーシングシステム */
+  /* 数学的に最適化されたスペーシングシステム */
   --space-xs: 0.5rem;    /* 8px */
   --space-sm: 0.75rem;   /* 12px */
   --space-md: 1rem;      /* 16px */
-  --space-lg: 1.5rem;    /* 24px */
+  --space-lg: 1.5rem;    /* 24px - 黄金比ベース */
   --space-xl: 2rem;      /* 32px */
   --space-2xl: 3rem;     /* 48px */
   --space-3xl: 4rem;     /* 64px */
   --space-4xl: 6rem;     /* 96px */
   --space-5xl: 8rem;     /* 128px */
+  
+  /* 完璧な縦配置のための黄金比システム */
+  --golden-ratio: 1.618;
+  --header-height: 80px;
+  --true-viewport-height: calc(100vh - var(--header-height));
+  --golden-section-top: calc(var(--true-viewport-height) / var(--golden-ratio));
+  --golden-section-bottom: calc(var(--true-viewport-height) - var(--golden-section-top));
+  
+  /* 視覚的重心の最適化 */
+  --visual-weight-top: 33%;
+  --visual-weight-center: 34%;
+  --visual-weight-bottom: 33%;
+  
+  /* 縦リズムの基準値 */
+  --vertical-rhythm-base: 1.5rem;
+  --vertical-rhythm-small: calc(var(--vertical-rhythm-base) * 0.618);
+  --vertical-rhythm-large: calc(var(--vertical-rhythm-base) * var(--golden-ratio));
   
   /* レイアウト */
   --container-max-width: 1400px;
@@ -97,10 +120,14 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 254, 247, 0.95);
+  background: linear-gradient(135deg,
+    rgba(255, 248, 225, 0.95) 0%,
+    rgba(255, 224, 178, 0.9) 50%,
+    rgba(255, 167, 38, 0.85) 100%);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 111, 0, 0.3);
   transition: all var(--duration-normal) var(--ease-out);
+  box-shadow: 0 4px 20px rgba(255, 111, 0, 0.1);
 }
 
 .header-container {
@@ -170,34 +197,58 @@ img {
    Hero Section - ダイナミック分割レイアウト
 ======================================== */
 .hero-section {
+  /* プレミアム版の優雅な中央配置を採用 */
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   position: relative;
+  padding: var(--space-4xl) var(--container-padding) var(--space-5xl);
   background: linear-gradient(135deg, 
-    var(--color-background) 0%, 
-    var(--color-background-soft) 100%);
+    #FFF8E1 0%,
+    #FFE0B2 25%,
+    #FFCC80 50%,
+    #FFB74D 75%,
+    #FFA726 100%);
 }
 
 /* ========================================
    左側：大型イラストエリア
 ======================================== */
+.hero-container {
+  max-width: var(--container-max-width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
 .hero-visual-area {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-4xl) var(--space-xl);
+  
   background: linear-gradient(135deg, 
-    rgba(255, 254, 247, 0.8) 0%, 
-    rgba(250, 249, 244, 0.9) 100%);
+    rgba(255, 248, 225, 0.9) 0%,
+    rgba(255, 224, 178, 0.8) 25%,
+    rgba(255, 204, 128, 0.7) 50%,
+    rgba(255, 183, 77, 0.8) 75%,
+    rgba(255, 167, 38, 0.9) 100%);
+  
+  border-radius: 20px;
+  padding: var(--space-2xl);
 }
 
 .main-illustration {
   position: relative;
   width: 100%;
-  max-width: 680px;
-  height: 680px;
+  max-width: 500px;
+  height: 500px;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -251,7 +302,10 @@ img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(214, 158, 46, 0.2);
+  background: radial-gradient(circle, 
+    rgba(255, 111, 0, 0.4) 0%,
+    rgba(233, 168, 82, 0.3) 50%,
+    rgba(255, 167, 38, 0.2) 100%);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -263,9 +317,11 @@ img {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--color-white);
+  background: radial-gradient(circle, 
+    #FFFFFF 0%, 
+    #FFF8E1 100%);
   border: 3px solid var(--color-accent);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 0 20px rgba(255, 111, 0, 0.3), var(--shadow-lg);
   transition: all var(--duration-normal) var(--ease-out);
 }
 
@@ -288,12 +344,27 @@ img {
   transition: all var(--duration-normal) var(--ease-out);
 }
 
-/* 各価値の色設定 */
-.point-nature .point-dot { border-color: var(--color-nature); }
-.point-culture .point-dot { border-color: var(--color-culture); }
-.point-community .point-dot { border-color: var(--color-community); }
-.point-learning .point-dot { border-color: var(--color-learning); }
-.point-craftsmanship .point-dot { border-color: var(--color-craftsmanship); }
+/* 各価値の華やかな色設定 */
+.point-nature .point-dot { 
+  border-color: var(--color-nature); 
+  box-shadow: 0 0 20px rgba(46, 93, 71, 0.4), var(--shadow-lg);
+}
+.point-culture .point-dot { 
+  border-color: var(--color-culture); 
+  box-shadow: 0 0 20px rgba(232, 168, 82, 0.4), var(--shadow-lg);
+}
+.point-community .point-dot { 
+  border-color: var(--color-community); 
+  box-shadow: 0 0 20px rgba(201, 91, 60, 0.4), var(--shadow-lg);
+}
+.point-learning .point-dot { 
+  border-color: var(--color-learning); 
+  box-shadow: 0 0 20px rgba(74, 123, 167, 0.4), var(--shadow-lg);
+}
+.point-craftsmanship .point-dot { 
+  border-color: var(--color-craftsmanship); 
+  box-shadow: 0 0 20px rgba(107, 76, 147, 0.4), var(--shadow-lg);
+}
 
 .point:hover .point-dot {
   transform: translate(-50%, -50%) scale(1.3);
@@ -360,30 +431,53 @@ img {
 .hero-message-area {
   position: relative;
   display: flex;
-  align-items: center;
-  padding: var(--space-4xl) var(--space-2xl);
-  background: var(--color-white);
-  box-shadow: inset 4px 0 20px rgba(0, 0, 0, 0.05);
+  align-items: flex-start;
+  
+  background: linear-gradient(135deg, 
+    #FFFFFF 0%,
+    #FFF8E1 30%,
+    #FFE0B2 70%,
+    #FFCC80 100%);
+  
+  border-radius: 20px;
+  padding: var(--space-2xl);
+  box-shadow: 0 10px 30px rgba(255, 111, 0, 0.1);
 }
 
 .message-container {
   width: 100%;
   max-width: 500px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
-/* メインメッセージ */
+/* 数学的に最適化されたメインメッセージ */
 .main-message {
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--vertical-rhythm-large);
+  
+  /* 視線誘導のための微細調整 */
+  transform: translateY(calc(var(--vertical-rhythm-small) * -0.5));
 }
 
 .primary-message {
   font-family: var(--font-primary);
-  font-size: 3.2rem;
+  
+  /* 黄金比による最適なフォントサイズ */
+  font-size: clamp(2.2rem, calc(var(--true-viewport-height) / 20), 3.8rem);
   font-weight: 800;
-  line-height: 1.2;
+  
+  /* 数学的に美しい行間 */
+  line-height: calc(1 / var(--golden-ratio) + 0.6);
+  
   color: var(--color-primary-text);
-  margin: 0 0 var(--space-xl) 0;
+  margin: 0 0 var(--vertical-rhythm-base) 0;
   letter-spacing: -0.03em;
+  
+  /* 視覚的インパクトの強化 */
+  text-shadow: 0 2px 4px rgba(255, 111, 0, 0.1);
 }
 
 .message-line {
@@ -403,100 +497,187 @@ img {
 
 .secondary-message {
   font-family: var(--font-secondary);
-  font-size: 1.8rem;
+  
+  /* メインメッセージとの黄金比関係 */
+  font-size: clamp(1.4rem, calc(var(--true-viewport-height) / 32), 2.1rem);
   font-weight: 500;
+  
   color: var(--color-secondary-text);
-  margin: 0 0 var(--space-2xl) 0;
+  margin: 0 0 var(--vertical-rhythm-large) 0;
+  
   opacity: 0;
   transform: translateX(20px);
   animation: messageSlideIn 0.8s var(--ease-out) 2.0s forwards;
 }
 
-/* コンセプト説明 */
+/* 黄金比によるコンセプト説明の配置 */
 .concept-description {
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--vertical-rhythm-large);
+  
   opacity: 0;
   transform: translateY(20px);
   animation: conceptAppear 0.8s var(--ease-out) 2.4s forwards;
+  
+  /* 読みやすさのための縦リズム */
+  line-height: var(--golden-ratio);
 }
 
 .description-text {
-  font-size: 1rem;
-  line-height: 1.8;
+  font-size: clamp(0.9rem, calc(var(--true-viewport-height) / 45), 1.1rem);
+  
+  /* 黄金比による理想的な行間 */
+  line-height: var(--golden-ratio);
+  
   color: var(--color-secondary-text);
-  margin: 0 0 var(--space-lg) 0;
+  margin: 0 0 var(--vertical-rhythm-base) 0;
+  
+  /* 読みやすさの向上 */
+  text-align: justify;
+  text-justify: inter-character;
 }
 
 .description-text:last-child {
   margin-bottom: 0;
 }
 
-/* 5つの価値プレビュー */
+/* 5つの価値を強調したメインコンテンツ */
 .values-preview {
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-2xl);
+  
   opacity: 0;
   transform: translateY(20px);
   animation: valuesPreviewAppear 0.8s var(--ease-out) 2.8s forwards;
 }
 
+/* 強調版のスタイル */
+.values-preview-enhanced {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+}
+
 .values-title {
   font-family: var(--font-primary);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
+  
   color: var(--color-primary-text);
   margin: 0 0 var(--space-lg) 0;
   letter-spacing: -0.02em;
+  
+  position: relative;
+}
+
+/* 強調版のタイトル */
+.values-title-enhanced {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: var(--space-xl);
+  text-align: center;
+  
+  background: linear-gradient(135deg, 
+    var(--color-accent) 0%,
+    var(--color-bright-orange) 50%,
+    #FF8F00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  text-shadow: 0 2px 4px rgba(255, 111, 0, 0.2);
 }
 
 .values-cards {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  
+  /* 黄金比による美しい間隔 */
+  gap: var(--vertical-rhythm-small);
+  
+  /* 各カードの連続アニメーションのための設定 */
+  transform-style: preserve-3d;
 }
 
 .value-card-mini {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md);
-  background: var(--color-background-soft);
-  border-radius: 12px;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 248, 225, 0.9) 50%,
+    rgba(255, 224, 178, 0.85) 100%);
+  
+  border-radius: 16px;
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
   border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(255, 111, 0, 0.15);
+  
+  /* 強調版ではより大きく */
+  min-height: 80px;
 }
 
 .value-card-mini:hover {
-  transform: translateX(8px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(255, 111, 0, 0.25),
+              0 0 30px rgba(233, 168, 82, 0.4);
+  border-color: var(--color-accent);
+  
+  background: linear-gradient(135deg,
+    rgba(255, 167, 38, 0.15) 0%,
+    rgba(255, 111, 0, 0.1) 100%);
 }
 
 .card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
   flex-shrink: 0;
   position: relative;
+  
+  /* 強調版ではより大きなアイコン */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .nature-icon {
-  background: linear-gradient(135deg, var(--color-nature), #2D6B4F);
+  background: linear-gradient(135deg, 
+    var(--color-nature) 0%, 
+    var(--color-vibrant-green) 50%,
+    #81C784 100%);
+  box-shadow: 0 8px 25px rgba(46, 93, 71, 0.3);
 }
 
 .culture-icon {
-  background: linear-gradient(135deg, var(--color-culture), #E6B885);
+  background: linear-gradient(135deg, 
+    var(--color-culture) 0%, 
+    var(--color-bright-orange) 50%,
+    #FFB74D 100%);
+  box-shadow: 0 8px 25px rgba(232, 168, 82, 0.3);
 }
 
 .community-icon {
-  background: linear-gradient(135deg, var(--color-community), #A0522D);
+  background: linear-gradient(135deg, 
+    var(--color-community) 0%, 
+    var(--color-warm-red) 50%,
+    #EF5350 100%);
+  box-shadow: 0 8px 25px rgba(201, 91, 60, 0.3);
 }
 
 .learning-icon {
-  background: linear-gradient(135deg, var(--color-learning), #5A6B7D);
+  background: linear-gradient(135deg, 
+    var(--color-learning) 0%, 
+    var(--color-sky-blue) 50%,
+    #64B5F6 100%);
+  box-shadow: 0 8px 25px rgba(74, 123, 167, 0.3);
 }
 
 .craftsmanship-icon {
-  background: linear-gradient(135deg, var(--color-craftsmanship), #3C6BA5);
+  background: linear-gradient(135deg, 
+    var(--color-craftsmanship) 0%, 
+    #9C27B0 50%,
+    #BA68C8 100%);
+  box-shadow: 0 8px 25px rgba(107, 76, 147, 0.3);
 }
 
 .card-icon::after {
@@ -518,11 +699,14 @@ img {
 
 .card-title {
   font-family: var(--font-primary);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--color-primary-text);
   margin: 0 0 var(--space-xs) 0;
   line-height: 1.3;
+  
+  /* 強調版ではより大きなフォント */
+  letter-spacing: -0.01em;
 }
 
 .card-subtitle {
@@ -534,13 +718,17 @@ img {
   letter-spacing: 0.1em;
 }
 
-/* アクションボタン */
+/* アクションボタンの美しい配置 */
 .hero-actions {
   display: flex;
   gap: var(--space-lg);
+  margin-top: var(--space-2xl);
+  
   opacity: 0;
   transform: translateY(20px);
   animation: actionsAppear 0.8s var(--ease-out) 3.2s forwards;
+  
+  justify-content: center;
 }
 
 .btn-primary,
@@ -560,40 +748,57 @@ img {
 }
 
 .btn-primary {
-  background-color: var(--color-accent);
+  background: linear-gradient(135deg, 
+    var(--color-accent) 0%,
+    var(--color-bright-orange) 50%,
+    #FF8F00 100%);
   color: var(--color-white);
+  box-shadow: 0 8px 25px rgba(255, 111, 0, 0.3);
 }
 
 .btn-primary:hover {
-  background-color: #E6A432;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, 
+    #FF8F00 0%,
+    #FF6F00 50%,
+    #E65100 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 111, 0, 0.4),
+              0 0 30px rgba(255, 143, 0, 0.3);
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 248, 225, 0.2) 100%);
   color: var(--color-secondary-text);
   border-color: var(--color-border);
+  backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-background-soft);
+  background: linear-gradient(135deg, 
+    rgba(255, 167, 38, 0.1) 0%,
+    rgba(255, 111, 0, 0.2) 100%);
   border-color: var(--color-accent);
   color: var(--color-accent);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(255, 111, 0, 0.2);
 }
 
-/* スクロールインジケーター */
+/* 黄金比によるスクロールインジケーターの美しい配置 */
 .scroll-indicator {
   position: absolute;
   bottom: var(--space-2xl);
   right: var(--space-2xl);
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-sm);
+  
   opacity: 0;
   animation: scrollIndicatorAppear 0.8s var(--ease-out) 3.8s forwards;
+  z-index: 10;
 }
 
 .scroll-line {
@@ -622,7 +827,12 @@ img {
 ======================================== */
 .values-detail-section {
   padding: var(--space-5xl) var(--container-padding);
-  background: var(--color-background-soft);
+  background: linear-gradient(135deg,
+    #FFF8E1 0%,
+    #FFE0B2 25%,
+    #FFD54F 50%,
+    #FFCC02 75%,
+    #FFC107 100%);
 }
 
 .values-container {
@@ -672,19 +882,26 @@ img {
 
 /* 詳細価値カード */
 .value-card-full {
-  background: var(--color-white);
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 248, 225, 0.9) 50%,
+    rgba(255, 224, 178, 0.85) 100%);
   border-radius: 20px;
   padding: var(--space-2xl);
   position: relative;
   overflow: hidden;
   transition: all var(--duration-normal) var(--ease-out);
-  border: 1px solid var(--color-border);
+  border: 2px solid transparent;
+  background-clip: padding-box;
   cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255, 111, 0, 0.1);
 }
 
 .value-card-full:hover {
-  transform: translateY(-12px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(255, 111, 0, 0.2), 
+              0 0 50px rgba(233, 168, 82, 0.3);
+  border-color: var(--color-accent);
 }
 
 .card-visual {
@@ -785,9 +1002,14 @@ img {
 .cta-section {
   padding: var(--space-5xl) var(--container-padding);
   background: linear-gradient(135deg, 
-    var(--color-primary-text) 0%, 
-    #2D3748 100%);
+    #2E5D47 0%,
+    #C95B3C 25%,
+    #4A7BA7 50%,
+    #6B4C93 75%,
+    #E8A852 100%);
   color: var(--color-white);
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-container {
@@ -822,8 +1044,12 @@ img {
 }
 
 .cta-section .btn-primary {
-  background-color: var(--color-accent);
+  background: linear-gradient(135deg, 
+    var(--color-accent) 0%,
+    #FF8F00 50%,
+    #E65100 100%);
   color: var(--color-white);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 .cta-section .btn-secondary {
@@ -918,29 +1144,32 @@ img {
    レスポンシブデザイン
 ======================================== */
 @media (max-width: 1024px) {
-  .hero-section {
+  .hero-container {
     grid-template-columns: 1fr;
-    min-height: auto;
+    gap: var(--space-3xl);
   }
   
   .hero-visual-area {
     order: 1;
-    padding: var(--space-3xl) var(--space-lg);
+    padding: var(--space-xl);
   }
   
   .hero-message-area {
     order: 2;
-    padding: var(--space-3xl) var(--space-lg);
-    box-shadow: none;
+    padding: var(--space-xl);
   }
   
   .main-illustration {
-    max-width: 500px;
-    height: 500px;
+    max-width: 400px;
+    height: 400px;
   }
   
   .primary-message {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+  }
+  
+  .values-title-enhanced {
+    font-size: 1.8rem;
   }
   
   .values-grid {
@@ -954,55 +1183,49 @@ img {
     --container-padding: var(--space-lg);
   }
   
-  .header-container {
-    padding: var(--space-md) var(--container-padding);
+  .hero-section {
+    padding: var(--space-2xl) var(--container-padding) var(--space-3xl);
   }
   
-  .brand-title {
-    font-size: 1.1rem;
-  }
-  
-  .main-navigation {
-    gap: var(--space-lg);
-  }
-  
-  .nav-link {
-    font-size: 0.85rem;
+  .hero-container {
+    gap: var(--space-2xl);
   }
   
   .hero-visual-area,
   .hero-message-area {
-    padding: var(--space-2xl) var(--container-padding);
+    padding: var(--space-lg);
   }
   
   .main-illustration {
-    max-width: 400px;
-    height: 400px;
+    max-width: 320px;
+    height: 320px;
   }
   
   .primary-message {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.2;
   }
   
   .secondary-message {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 4vw, 1.7rem);
   }
   
-  .values-cards {
-    gap: var(--space-sm);
+  .values-title-enhanced {
+    font-size: 1.6rem;
+  }
+  
+  .card-icon {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
   }
   
   .hero-actions {
     flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .cta-title {
-    font-size: 2.2rem;
+    gap: var(--space-sm);
   }
   
   .timeline-overlay {
@@ -1010,6 +1233,11 @@ img {
     left: var(--space-lg);
     right: var(--space-lg);
     padding: var(--space-md);
+  }
+  
+  .scroll-indicator {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
   }
 }
 

@@ -32,13 +32,13 @@ class NaganoDynamicExperience {
     
     if (!points.length || !heroIllustration) return;
 
-    // 価値別フィルター定義（より強いエフェクト）
+    // 華やかでカラフルな価値別フィルター定義
     const valueFilters = {
-      nature: 'sepia(0.4) saturate(1.4) hue-rotate(-20deg) brightness(1.1) contrast(1.1)',
-      culture: 'sepia(0.5) saturate(1.3) hue-rotate(25deg) brightness(1.05) contrast(1.05)',
-      community: 'sepia(0.3) saturate(1.5) hue-rotate(10deg) brightness(1.08) contrast(1.08)',
-      learning: 'sepia(0.2) saturate(1.2) hue-rotate(-10deg) brightness(0.95) contrast(1.1)',
-      craftsmanship: 'sepia(0.3) saturate(1.3) hue-rotate(-25deg) brightness(1.02) contrast(1.1)'
+      nature: 'sepia(0.2) saturate(1.6) hue-rotate(-15deg) brightness(1.15) contrast(1.2) drop-shadow(0 0 10px rgba(46, 93, 71, 0.3))',
+      culture: 'sepia(0.3) saturate(1.8) hue-rotate(20deg) brightness(1.2) contrast(1.15) drop-shadow(0 0 10px rgba(232, 168, 82, 0.3))',
+      community: 'sepia(0.2) saturate(1.7) hue-rotate(5deg) brightness(1.1) contrast(1.2) drop-shadow(0 0 10px rgba(201, 91, 60, 0.3))',
+      learning: 'sepia(0.1) saturate(1.5) hue-rotate(-5deg) brightness(1.05) contrast(1.25) drop-shadow(0 0 10px rgba(74, 123, 167, 0.3))',
+      craftsmanship: 'sepia(0.2) saturate(1.6) hue-rotate(-30deg) brightness(1.08) contrast(1.2) drop-shadow(0 0 10px rgba(107, 76, 147, 0.3))'
     };
 
     points.forEach(point => {
@@ -66,14 +66,16 @@ class NaganoDynamicExperience {
           }
         });
         
-        // ポイント自体のエフェクト強化
+        // ポイント自体のカラフルエフェクト強化
         const dot = point.querySelector('.point-dot');
         const pulse = point.querySelector('.point-pulse');
         
         if (dot && pulse) {
-          dot.style.transform = 'translate(-50%, -50%) scale(1.5)';
-          dot.style.boxShadow = `0 0 40px ${this.getValueColor(value)}`;
-          pulse.style.animationDuration = '1s';
+          dot.style.transform = 'translate(-50%, -50%) scale(1.8)';
+          dot.style.boxShadow = `0 0 50px ${this.getValueColor(value)}, 0 0 20px rgba(255, 111, 0, 0.5)`;
+          dot.style.background = `radial-gradient(circle, #FFFFFF 0%, ${this.getValueColor(value)}20 100%)`;
+          pulse.style.animationDuration = '0.8s';
+          pulse.style.background = `radial-gradient(circle, ${this.getValueColor(value)}40 0%, ${this.getValueColor(value)}20 50%, transparent 100%)`;
         }
       });
       
@@ -82,8 +84,8 @@ class NaganoDynamicExperience {
         
         this.currentValue = null;
         
-        // 画像を元に戻す
-        heroIllustration.style.filter = 'brightness(1.05) saturate(1.1)';
+        // 画像をカラフルなデフォルト状態に戻す
+        heroIllustration.style.filter = 'brightness(1.1) saturate(1.3) contrast(1.1) drop-shadow(0 0 20px rgba(255, 111, 0, 0.1))';
         heroIllustration.style.transform = 'scale(1)';
         
         // 価値カードのハイライトを解除
@@ -442,13 +444,13 @@ class NaganoDynamicExperience {
 
   getValueColor(value) {
     const colors = {
-      nature: '#1B4D3E',
-      culture: '#D4A574',
-      community: '#8B4513',
-      learning: '#4A5568',
-      craftsmanship: '#2C5282'
+      nature: '#2E5D47',        // 深い緑
+      culture: '#E8A852',       // 明るい黄橙
+      community: '#C95B3C',     // 温かい赤橙
+      learning: '#4A7BA7',      // 知的な青
+      craftsmanship: '#6B4C93'  // 技術の紫
     };
-    return colors[value] || '#D69E2E';
+    return colors[value] || '#FF6F00';
   }
 }
 
