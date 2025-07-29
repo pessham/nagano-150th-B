@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>長野県150周年記念 - B案</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="js/p5.min.js"></script>
 </head>
 <body>
+    <!-- 緊急・重要情報アラート（Aから移植） -->
+    <div id="alert-banner" class="alert-banner alert-emergency" role="alert" data-expires="" style="display: none;">
+        <div class="alert-content">
+            <div class="alert-main">
+                <span class="alert-category">【緊急】</span>
+                <span class="alert-title">地震の影響により本日の記念式典は中止いたします。</span>
+                <span class="alert-message">参加予定の皆様の安全を最優先とし、開催を見合わせます。今後の予定は改めてお知らせいたします。</span>
+            </div>
+            <a href="/news/" class="alert-link">詳細を見る</a>
+            <button class="alert-close" onclick="closeAlert()" aria-label="アラートを閉じる">&times;</button>
+        </div>
+    </div>
+
     <header>
         <div class="header-brand">
             <h1>長野県150周年記念事業</h1>
@@ -18,10 +31,31 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#about">150周年について</a></li>
-                <li><a href="#values">5つの価値</a></li>
-                <li><a href="#events">イベント</a></li>
-                <li><a href="#contact">お問い合わせ</a></li>
+                <li class="nav-dropdown">
+                    <a href="#about">事業について</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/about/purpose/">事業の目的</a></li>
+                        <li><a href="/about/concept/">事業コンセプト</a></li>
+                        <li><a href="#values">5つの価値</a></li>
+                    </ul>
+                </li>
+                <li><a href="/history/">長野県の歩み</a></li>
+                <li class="nav-dropdown">
+                    <a href="/features/">特集記事</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/features/01/">第1回：自然と環境</a></li>
+                        <li><a href="/features/02/">第2回：風土と文化</a></li>
+                        <li><span style="color: #999;">第3回：コミュニティ（準備中）</span></li>
+                        <li><span style="color: #999;">第4回：学びの伝統（準備中）</span></li>
+                        <li><span style="color: #999;">第5回：産業と技術（準備中）</span></li>
+                    </ul>
+                </li>
+                <li><a href="/projects/">関連事業</a></li>
+                <li><a href="/events/">イベント情報</a></li>
+                <li><a href="/messages/">メッセージ</a></li>
+                <li><a href="/news/">お知らせ</a></li>
+                <li><a href="/search/">🔍 検索</a></li>
+                <li><a href="/contact/">お問い合わせ</a></li>
             </ul>
         </nav>
     </header>
@@ -49,7 +83,489 @@
             <label for="animation-toggle">背景アニメーションを有効にする</label>
         </div>
         </section>
+
+        <!-- Aのコンテンツをここから移植 -->
+        <section id="historical-unity-line">
+            <div class="unity-timeline-container">
+                <div class="unity-timeline-header">
+                    <span class="timeline-year start">1876</span>
+                    <span class="timeline-title">統合への歩み</span>
+                    <span class="timeline-year end">2026</span>
+                </div>
+                <div class="dual-line-container">
+                    <div class="historical-line hokushin" data-region="北信"></div>
+                    <div class="historical-line chunanshin" data-region="中南信"></div>
+                    <div class="unity-line"></div>
+                </div>
+                <div class="convergence-point" data-year="1876">
+                    <span class="convergence-label">筑摩県と旧長野県の合併</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="purpose">
+            <h2 class="section-title">150周年事業の目的<span class="en-subtitle">PURPOSE</span></h2>
+            <div class="content-block">
+                <div class="purpose-main">
+                    <p class="purpose-lead">この150周年事業は、県民一人ひとりが長野県の歴史と価値を再発見し、一体感を持って未来を創造することを目的としています。1876年の筑摩県と旧長野県の合併から150年という節目を迎える今、私たちは改めて長野県の歩みを振り返り、次世代への贈り物として新しい価値を創出していきます。</p>
+                    <div class="purpose-cta">
+                        <a href="/about/purpose/" class="btn-primary">事業の目的を詳しく →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">150周年事業のコンセプト<span class="en-subtitle">CONCEPT</span></h2>
+            <div class="content-block">
+                <h3>事業の目的</h3>
+                <p>1876年の筑摩県と旧長野県の合併から、2026年で150周年を迎えます。この記念事業は、県民一人ひとりが150年の歴史の中で築かれてきた価値や魅力を再発見し、一体感を持ってともに長野県の未来を思い描き、新しい行動を起こす機会とすることを目的としています。</p>
+
+                <h3>基本コンセプト</h3>
+                <p class="concept-phrase"><strong>自らを知り 互いを知り 高め合おう「私たちの長野県」</strong></p>
+                <p>山々が連なる長野県では、山あいの集落ごとに独自性ある文化や地域性が育まれ、南北に広い県土の各地に高いポテンシャルを持つさまざまな魅力が存在しています。このような特性を活かし、県150周年を機に以下の取り組みを進めます。</p>
+                <ul class="concept-list">
+                    <li><strong>再発見:</strong> 自分達の歴史・歩みを振り返り、価値に気付き、誇り・アイデンティティを持つこと</li>
+                    <li><strong>共有:</strong> 県内にあるさまざまな価値を広く知り、体験してみること</li>
+                    <li><strong>磨き上げ:</strong> 互いをリスペクトし、価値を高め合うこと</li>
+                </ul>
+                <p>これらの取り組みを通じて、さまざまな人や地域の個性が融合した、より魅力ある長野県を目指します。</p>
+                <div class="concept-cta">
+                    <a href="/about/concept/" class="btn-primary">コンセプト詳細 →</a>
+                </div>
+            </div>
+
+            <h2 class="section-title">長野県の歩み：150年の変遷<span class="en-subtitle">HISTORY</span></h2>
+            <div class="content-block history-timeline">
+                <p>（※県より支給する素材・資料をベースに作成予定）</p>
+                <p>明治維新前後の激動の時代を経て、1876年（明治9年）に筑摩県と旧長野県が合併し、現在の長野県が誕生しました。以来150年、長野県は豊かな自然と人々の営みの中で、数々の歴史的転換点を経験し、独自の文化と産業を育んできました。</p>
+                <p>このセクションでは、明治初期の県域確定から現代に至るまでの主要なトピックスを、歴史的資料や写真とともに紹介します。教育、産業、交通、文化など、多岐にわたる分野での長野県の発展の軌跡を辿り、先人たちの知恵と努力に光を当てます。</p>
+                <p>（具体的な内容については、別途提供される資料に基づき、詳細を記述します。単独の印刷媒体としても活用できるよう、図版や年表なども盛り込む予定です。）</p>
+                
+                <!-- 一本線の中立年表 -->
+                <div class="neutral-timeline">
+                    <div class="timeline-controls">
+                        <button class="filter-toggle" data-filter="all">すべて表示</button>
+                        <button class="filter-toggle" data-filter="important">重要年のみ</button>
+                        <button class="text-view-toggle">テキストで全件を見る</button>
+                    </div>
+                    
+                    <!-- PC版：水平タイムライン -->
+                    <div class="horizontal-timeline" id="pc-timeline">
+                        <div class="timeline-track">
+                            <div class="timeline-line"></div>
+                            
+                            <!-- タイムラインノード -->
+                            <div class="timeline-node" data-year="1876" data-importance="high" style="left: 10%;" tabindex="0" role="button" aria-describedby="detail-1876">
+                                <div class="node-marker important"></div>
+                                <span class="node-year">1876</span>
+                            </div>
+                            
+                            <div class="timeline-node" data-year="1891" data-importance="normal" style="left: 20%;" tabindex="0" role="button" aria-describedby="detail-1891">
+                                <div class="node-marker"></div>
+                                <span class="node-year">1891</span>
+                            </div>
+                            
+                            <div class="timeline-node" data-year="1908" data-importance="normal" style="left: 30%;">
+                                <div class="node-marker"></div>
+                                <span class="node-year">1908</span>
+                            </div>
+                            
+                            <div class="timeline-node" data-year="1933" data-importance="normal" style="left: 45%;">
+                                <div class="node-marker"></div>
+                                <span class="node-year">1933</span>
+                            </div>
+                            
+                            <div class="timeline-node" data-year="1948" data-importance="high" style="left: 55%;">
+                                <div class="node-marker important"></div>
+                                <span class="node-year">1948</span>
+                            </div>
+                            
+                            <div class="timeline-node" data-year="1963" data-importance="normal" style="left: 65%;">
+                                <div class="node-marker"></div>
+                                <span class="node-year">1963</span>
+                            </div>
+                            
+                            <div class="timeline-node" data-year="1998" data-importance="high" style="left: 80%;" tabindex="0" role="button" aria-describedby="detail-1998">
+                                <div class="node-marker important"></div>
+                                <span class="node-year">1998</span>
+                            </div>
+                            
+                            <div class="timeline-node" data-year="2026" data-importance="high" style="left: 95%;" tabindex="0" role="button" aria-describedby="detail-2026">
+                                <div class="node-marker important future"></div>
+                                <span class="node-year">2026</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 詳細パネル（PC版右サイド） -->
+                    <div class="timeline-detail-panel" id="detail-panel">
+                        <div class="detail-content" id="detail-1876">
+                            <h3 class="detail-year">1876年（明治9年）</h3>
+                            <h4 class="detail-title">県域が現在の形に再編される</h4>
+                            <p class="detail-summary">明治政府の地方統治制度の再編により、当時の筑摩県は廃止され、その一部が長野県に編入されました。この時期の出来事は、県内の地域間関係を考えるうえで重要な節目として位置づけられます。</p>
+                            
+                            <div class="learning-section">
+                                <h5>当時わかったこと（学び）</h5>
+                                <p>多様な地域が一つの県域として歩みを始める過程で、地域ごとの特性を活かしながら協調する重要性が示されました。</p>
+                            </div>
+                            
+                            <div class="current-actions">
+                                <h5>今に続く動き</h5>
+                                <p>現在も県内各地域の特色を活かした連携プロジェクトが展開され、多様性と協調の県民性が受け継がれています。</p>
+                            </div>
+                            
+                            <details class="footnotes">
+                                <summary>参考資料・詳細情報</summary>
+                                <p>当時の資料には県庁舎火災をめぐるさまざまな見解が残されています。詳細は県史編纂資料をご参照ください。</p>
+                            </details>
+                        </div>
+                        
+                        <!-- その他の年の詳細コンテンツは同様の構造で続く -->
+                        <div class="detail-content" id="detail-default" style="display: block;">
+                            <h3>長野県150年の歩み</h3>
+                            <p>年表の各ポイントをクリックすると、その時代の詳細をご覧いただけます。</p>
+                            <p>歴史の学びから、現在と未来への取り組みまで、長野県の歩みを振り返ります。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- SP版：縦アコーディオン -->
+                    <div class="vertical-timeline" id="sp-timeline">
+                        <div class="vertical-track">
+                            <div class="vertical-line"></div>
+                            
+                            <div class="timeline-card" data-year="1876" data-importance="high">
+                                <div class="card-node important"></div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-year">1876年</span>
+                                        <h4 class="card-title">県域が現在の形に再編される</h4>
+                                    </div>
+                                    <details class="card-details">
+                                        <summary class="card-summary">明治政府の地方統治制度の再編により、県域が確定されました</summary>
+                                        <div class="card-expanded">
+                                            <div class="learning">
+                                                <h5>学び</h5>
+                                                <p>多様な地域が一つの県域として歩みを始める過程で、地域ごとの特性を活かしながら協調する重要性が示されました。</p>
+                                            </div>
+                                            <div class="current">
+                                                <h5>今に続く動き</h5>
+                                                <p>現在も県内各地域の特色を活かした連携プロジェクトが展開されています。</p>
+                                            </div>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                            
+                            <!-- 他の年のカードも同様の構造 -->
+                            <div class="timeline-card" data-year="1998" data-importance="high">
+                                <div class="card-node important"></div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-year">1998年</span>
+                                        <h4 class="card-title">長野オリンピック開催</h4>
+                                    </div>
+                                    <details class="card-details">
+                                        <summary class="card-summary">世界との交流と県民一体となった取り組みが実現</summary>
+                                        <div class="card-expanded">
+                                            <div class="learning">
+                                                <h5>学び</h5>
+                                                <p>県民総参加の精神と国際的な視野の重要性を実感しました。</p>
+                                            </div>
+                                            <div class="current">
+                                                <h5>今に続く動き</h5>
+                                                <p>スポーツ振興と国際交流の基盤として現在も活用されています。</p>
+                                            </div>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-card" data-year="2026" data-importance="high">
+                                <div class="card-node important future"></div>
+                                <div class="card-content">
+                                    <div class="card-header">
+                                        <span class="card-year">2026年</span>
+                                        <h4 class="card-title">150周年記念事業</h4>
+                                    </div>
+                                    <details class="card-details">
+                                        <summary class="card-summary">新たな150年へ向けて、県民とともに未来を描く</summary>
+                                        <div class="card-expanded">
+                                            <div class="learning">
+                                                <h5>学び</h5>
+                                                <p>これまでの歩みから学んだ協調と多様性の価値を次世代へ継承します。</p>
+                                            </div>
+                                            <div class="current">
+                                                <h5>今に続く動き</h5>
+                                                <p>県民参加型プロジェクトで新しい長野県の魅力を創造していきます。</p>
+                                            </div>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 未来への誘導 -->
+                    <div class="future-call-to-action">
+                        <h3>未来へ：互いを知り高め合うための現在のプロジェクト</h3>
+                        <p>150年の歩みから学んだ「協調と多様性」の精神を活かし、県民とともに新しい長野県を創造していく取り組みが始まっています。</p>
+                        <a href="/history/" class="future-link">150年の歩みを詳しく →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="values">
+            <h2 class="section-title">長野県の5つの価値<span class="en-subtitle">CORE VALUES</span></h2>
+            <div class="value-grid">
+                <div class="value-item green">
+                    <div class="value-icon"></div>
+                    <h3>自然を守り共に生きる<span class="en-subtitle">PROTECTING NATURE</span></h3>
+                    <p>豊かな山々や清らかな水に育まれた、長野県の雄大な自然環境の価値。</p>
+                </div>
+                <div class="value-item orange">
+                    <div class="value-icon"></div>
+                    <h3>多彩な風土で魅力を育む<span class="en-subtitle">DIVERSE CULTURE</span></h3>
+                    <p>南北に広がる77の市町村がそれぞれ持つ、多様な食文化や地域の魅力。</p>
+                </div>
+                <div class="value-item yellow">
+                    <div class="value-icon"></div>
+                    <h3>みんなに居場所と出番をつくる<span class="en-subtitle">INCLUSIVE COMMUNITY</span></h3>
+                    <p>多様な背景を持つ人々が活躍できる包括的な社会の実現。</p>
+                </div>
+                <div class="value-item purple">
+                    <div class="value-icon"></div>
+                    <h3>一人ひとりの学びたいを叶える<span class="en-subtitle">LIFELONG LEARNING</span></h3>
+                    <p>生涯にわたる学び直しや、新たな挑戦ができる教育・探求の機会が豊富であること。</p>
+                </div>
+                <div class="value-item blue">
+                    <div class="value-icon"></div>
+                    <h3>確かな技で世界を変える<span class="en-subtitle">INNOVATIVE CRAFTSMANSHIP</span></h3>
+                    <p>古くから受け継がれてきた、伝統的な「ものづくり」の技術力と、その先進性。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="feature-intro">
+            <h2 class="section-title">特集記事シリーズ<span class="en-subtitle">FEATURE ARTICLES</span></h2>
+            <div class="feature-intro-wrapper">
+                <div class="feature-intro-content">
+                    <div class="feature-intro-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop&crop=center" alt="長野県の山岳風景" />
+                    </div>
+                    <div class="feature-intro-text">
+                        <h3>第1回：山岳高原リゾート県、環境先進県と<br><span class="en-subtitle">NATURE & ENVIRONMENT</span></h3>
+                        <p>長野県は「日本の屋根」と称される雄大な山々に囲まれ、清らかな水と豊かな自然に恵まれています。この恵まれた環境は、古くから人々の暮らしを育み、独自の文化を形成してきました。</p>
+                        <div class="feature-intro-cta">
+                            <a href="/features/01/" class="btn-primary">第1回を読む →</a>
+                            <a href="/features/" class="btn-secondary">特集記事一覧 →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects-highlight">
+            <h2 class="section-title">関連事業ハイライト<span class="en-subtitle">RELATED PROJECTS</span></h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=300&h=200&fit=crop&crop=center" alt="信州博覧会イメージ" />
+                    </div>
+                    <div class="project-content">
+                        <h3>信州博覧会2025</h3>
+                        <p class="project-date">2025年8月15日 - 9月30日</p>
+                        <p class="project-desc">150年の歩みを体感できる大規模博覧会</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=300&h=200&fit=crop&crop=center" alt="記念コンサートイメージ" />
+                    </div>
+                    <div class="project-content">
+                        <h3>150周年記念コンサート</h3>
+                        <p class="project-date">2025年9月20日</p>
+                        <p class="project-desc">信州ゆかりのアーティストによる特別公演</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&h=200&fit=crop&crop=center" alt="記念フェアイメージ" />
+                    </div>
+                    <div class="project-content">
+                        <h3>150周年記念フェア</h3>
+                        <p class="project-date">2025年10月1日 - 11月30日</p>
+                        <p class="project-desc">県産品と伝統工芸の魅力を発信</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=300&h=200&fit=crop&crop=center" alt="歴史シンポジウムイメージ" />
+                    </div>
+                    <div class="project-content">
+                        <h3>歴史シンポジウム</h3>
+                        <p class="project-date">2025年11月15日</p>
+                        <p class="project-desc">専門家による長野県史の深掘り講演</p>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-cta">
+                <a href="/projects/" class="btn-primary">関連事業一覧 →</a>
+            </div>
+        </section>
+
+        <section id="messages-highlight">
+            <h2 class="section-title">関係各所からのメッセージ<span class="en-subtitle">MESSAGES</span></h2>
+            <div class="messages-grid">
+                <div class="message-card">
+                    <div class="message-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=faces" alt="田中太郎知事" />
+                    </div>
+                    <div class="message-content">
+                        <h3>田中 太郎</h3>
+                        <p class="message-title">長野県知事</p>
+                        <p class="message-excerpt">150年という長い歩みの中で培われてきた長野県の価値を、県民の皆様とともに再発見し、次の150年へと継承していきたい...</p>
+                    </div>
+                </div>
+                <div class="message-card">
+                    <div class="message-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616c9fe83f2?w=100&h=100&fit=crop&crop=faces" alt="佐藤花子会長" />
+                    </div>
+                    <div class="message-content">
+                        <h3>佐藤 花子</h3>
+                        <p class="message-title">長野県商工会議所連合会会長</p>
+                        <p class="message-excerpt">産業界として、長野県の持つ技術力と革新性を活かし、次世代に向けた新たな価値創造に取り組んでまいります...</p>
+                    </div>
+                </div>
+                <div class="message-card">
+                    <div class="message-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces" alt="山田次郎教授" />
+                    </div>
+                    <div class="message-content">
+                        <h3>山田 次郎</h3>
+                        <p class="message-title">信州大学教授</p>
+                        <p class="message-excerpt">学術的な視点から、長野県の歴史と文化の多様性を探求し、その価値を広く社会に伝えていく使命を感じています...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="messages-cta">
+                <a href="/messages/" class="btn-primary">メッセージ一覧 →</a>
+            </div>
+        </section>
+
+        <section id="news-highlight">
+            <h2 class="section-title">最新お知らせ<span class="en-subtitle">LATEST NEWS</span></h2>
+            <div class="news-list">
+                <div class="news-item">
+                    <span class="news-date">2025.07.20</span>
+                    <h3 class="news-title">記念式典の開催について</h3>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.07.18</span>
+                    <h3 class="news-title">特集記事第2回「地域ごとの独自の風土・文化」を公開しました</h3>
+                </div>
+                <div class="news-item">
+                    <span class="news-date">2025.07.15</span>
+                    <h3 class="news-title">関連事業の募集を開始します</h3>
+                </div>
+            </div>
+            <div class="news-cta">
+                <a href="/news/" class="btn-primary">お知らせ一覧 →</a>
+            </div>
+        </section>
+
+
+        <section id="process">
+            <h2 class="section-title">150周年事業のプロセス<span class="en-subtitle">OUR PROCESS</span></h2>
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-badge">1</div>
+                    <h3>再発見</h3>
+                    <p>自分達の歴史・歩みを振り返り、価値に気付き、誇り・アイデンティティを持つこと</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-badge">2</div>
+                    <h3>共有</h3>
+                    <p>県内にあるさまざまな価値を広く知り、体験してみること</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-badge">3</div>
+                    <h3>磨き上げ</h3>
+                    <p>互いをリスペクトし、価値を高め合うこと</p>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="dual-progress-bars">
+                    <div class="progress-bar hokushin" data-label="北信"></div>
+                    <div class="progress-bar chunanshin" data-label="中南信"></div>
+                </div>
+                <div class="unified-progress-bar" style="width: 65%;"></div>
+                <span class="progress-label">プロジェクト進捗状況 65%</span>
+                <span class="unity-message">互いを知る → 高め合う</span>
+            </div>
+            <div class="sns-links">
+                <a href="#" class="sns-icon">X</a>
+                <a href="#" class="sns-icon">Facebook</a>
+                <a href="#" class="sns-icon">Instagram</a>
+            </div>
+        </section>
     </main>
+
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">長野県150周年記念事業</div>
+                <p>長野県の豊かな歴史と未来を紡ぐプロジェクト。</p>
+            </div>
+            <div class="footer-col">
+                <h4>事業について</h4>
+                <ul>
+                    <li><a href="/">トップページ</a></li>
+                    <li><a href="/about/purpose/">事業の目的</a></li>
+                    <li><a href="/about/concept/">事業コンセプト</a></li>
+                    <li><a href="#values">5つの価値</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>コンテンツ</h4>
+                <ul>
+                    <li><a href="/history/">長野県の歩み</a></li>
+                    <li><a href="/features/">特集記事シリーズ</a></li>
+                    <li><a href="/projects/">関連事業</a></li>
+                    <li><a href="/messages/">関係各所からのメッセージ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>イベント・お知らせ</h4>
+                <ul>
+                    <li><a href="/events/">イベント情報</a></li>
+                    <li><a href="/ceremony/">記念式典</a></li>
+                    <li><a href="/news/">お知らせ</a></li>
+                    <li><a href="/history-project/">長野県史編さん</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>お問い合わせ</h4>
+                <p>〒380-8570 長野県長野市大字南長野字幅下692-2</p>
+                <p>電話: 026-XXX-XXXX</p>
+                <p>Email: info@nagano150th.jp</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nagano Prefecture. All rights reserved.</p>
+            <p>
+                <a href="/privacy/">プライバシーポリシー</a> | 
+                <a href="/terms/">利用規約</a> | 
+                <a href="/accessibility/">アクセシビリティ</a> | 
+                <a href="/sitemap/">サイトマップ</a> | 
+                <a href="/contact/">お問い合わせ</a>
+            </p>
+        </div>
+    </footer>
+
     <script src="js/sketch.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

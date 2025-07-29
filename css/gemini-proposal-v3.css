@@ -1,0 +1,135 @@
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800&display=swap');
+
+:root {
+    --bg-color: #FFFFFF;
+    --text-color: #333;
+    /* 画像から抽出したPOPなカラー */
+    --shape-red: #F44336;
+    --shape-blue: #03A9F4;
+    --shape-yellow: #FFEB3B;
+    --shape-green: #8BC34A;
+    --shape-pink: #E91E63;
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.assembly-container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.shape-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* アニメーションで画面外から入るのを見せる */
+}
+
+.shape {
+    transition: transform 0.3s ease;
+    transform-origin: center center;
+    opacity: 0;
+    animation-fill-mode: forwards; /* アニメーション後を維持 */
+}
+
+/* 各シェイプのアニメーション定義 */
+#shape-red {
+    animation: fly-in-red 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+}
+#shape-blue {
+    animation: fly-in-blue 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+}
+#shape-yellow {
+    animation: fly-in-yellow 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+}
+#shape-green {
+    animation: fly-in-green 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
+}
+#shape-pink {
+    animation: fly-in-pink 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s forwards;
+}
+
+/* テキストのコンテナ */
+.text-container {
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    animation: fade-in-text 1s ease 2.5s forwards; /* シェイプアニメーション完了後にフェードイン */
+    z-index: 10;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    color: #222;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+/* キーフレームアニメーション */
+@keyframes fly-in-red {
+    from { opacity: 0; transform: translate(-200px, -200px) rotate(-90deg) scale(0.5); }
+    to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@keyframes fly-in-blue {
+    from { opacity: 0; transform: translate(200px, -150px) rotate(90deg) scale(0.5); }
+    to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@keyframes fly-in-yellow {
+    from { opacity: 0; transform: translate(250px, 200px) rotate(180deg) scale(0.5); }
+    to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@keyframes fly-in-green {
+    from { opacity: 0; transform: translate(-200px, 250px) rotate(-180deg) scale(0.5); }
+    to { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@keyframes fly-in-pink {
+    from { opacity: 0; transform: translateY(-300px) scale(0.5); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fade-in-text {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .assembly-container {
+        width: 300px;
+        height: 300px;
+    }
+    .main-title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+}

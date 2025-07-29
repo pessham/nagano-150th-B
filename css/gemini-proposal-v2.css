@@ -1,0 +1,123 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap');
+
+:root {
+    --bg-color: #FFFFFF; /* 明るくクリーンな白 */
+    --text-color: #444444; /* 柔らかいチャコールグレー */
+    --accent-color: #005BBB; /* 県のシンボルカラーに近い青 */
+    --particle-blue: #00A9E0;
+    --particle-pink: #E6007E;
+    --particle-green: #009E49;
+    --particle-yellow: #FFD100;
+    --particle-red: #E60033;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    overflow: hidden; /* 画面外のパーティクルを隠す */
+}
+
+.hero-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.particle-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* アニメーションがクリックなどを妨げないように */
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--particle-blue);
+    animation: converge 8s ease-in-out infinite;
+    opacity: 0;
+    filter: blur(2px);
+}
+
+/* パーティクルの色とアニメーションの遅延を設定 */
+.particle.blue { background-color: var(--particle-blue); }
+.particle.pink { background-color: var(--particle-pink); animation-delay: -1.6s; }
+.particle.green { background-color: var(--particle-green); animation-delay: -3.2s; }
+.particle.yellow { background-color: var(--particle-yellow); animation-delay: -4.8s; }
+.particle.red { background-color: var(--particle-red); animation-delay: -6.4s; }
+
+/* 個々のパーティクルの設定 */
+.particle:nth-child(5n + 1) { top: 5%; left: 10%; width: 5px; height: 5px; animation-duration: 7s; animation-delay: calc(var(--d, 1) * -1.5s); }
+.particle:nth-child(5n + 2) { top: 90%; left: 20%; width: 7px; height: 7px; animation-duration: 9s; animation-delay: calc(var(--d, 1) * -1.5s); }
+.particle:nth-child(5n + 3) { top: 15%; left: 85%; width: 6px; height: 6px; animation-duration: 6s; animation-delay: calc(var(--d, 1) * -1.5s); }
+.particle:nth-child(5n + 4) { top: 80%; left: 90%; width: 8px; height: 8px; animation-duration: 8s; animation-delay: calc(var(--d, 1) * -1.5s); }
+.particle:nth-child(5n + 5) { top: 50%; left: 5%; width: 5px; height: 5px; animation-duration: 10s; animation-delay: calc(var(--d, 1) * -1.5s); }
+.particle:nth-child(5n + 6) { top: 40%; left: 95%; width: 6px; height: 6px; animation-duration: 7.5s; animation-delay: calc(var(--d, 1) * -1.5s); }
+
+
+@keyframes converge {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        /* 画面中央に集まる */
+        transform: translate(calc(50vw - var(--start-x, 50vw)), calc(50vh - var(--start-y, 50vh))) scale(0);
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 3s ease-out;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 0;
+    max-width: 650px;
+    line-height: 1.8;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.subtitle strong {
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+}
