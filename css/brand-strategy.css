@@ -1,0 +1,625 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400..900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap");
+
+:root {
+    /* 長野県150周年 5色ブランドシステム */
+    --heritage-green: #2E7D32;
+    --harmony-gold: #F9A825;
+    --unity-blue: #1976D2;
+    --wisdom-purple: #7B1FA2;
+    --inclusive-orange: #F57C00;
+    
+    /* 背景色 */
+    --bg-color: #FFFBF5;
+    --text-color: #333;
+    
+    /* フォントファミリー設定 */
+    --ff-heading: "Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+    --ff-body: "Zen Maru Gothic","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+    --ff-ui: "Inter","Zen Kaku Gothic New","Yu Gothic UI","Meiryo",sans-serif;
+}
+
+body {
+    font-family: var(--ff-body);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.9;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(255, 251, 245, 0.95);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.header-brand h1 {
+    font-family: var(--ff-heading);
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.shinshu-tagline {
+    font-family: var(--ff-ui);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: block;
+    margin-top: 3px;
+    opacity: 0.7;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: inherit;
+    font-family: var(--ff-ui);
+    font-size: 14px;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav a:hover {
+    opacity: 0.7;
+}
+
+.hero-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 40px 60px;
+    position: relative;
+    background: linear-gradient(135deg, #FFFBF5 0%, #FFF8E8 50%, #FFF3E0 100%);
+}
+
+.brand-visual {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 中央画像コンテナ */
+.center-image-container {
+    position: relative;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    animation: centerImageAppear 2s ease-out 0.5s forwards;
+}
+
+.center-image {
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
+    filter: brightness(1.05) saturate(1.1);
+    transition: all 0.3s ease;
+}
+
+.center-image:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1) saturate(1.2);
+}
+
+/* 時間軸オーバーレイ */
+.timeline-overlay {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 400px;
+}
+
+.timeline-year {
+    font-family: var(--ff-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--harmony-gold);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: timelineYearFade 1s ease-out 1.5s forwards;
+}
+
+.timeline-progress {
+    position: relative;
+    height: 4px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--heritage-green), var(--harmony-gold), var(--unity-blue), var(--inclusive-orange));
+    width: 0%;
+    border-radius: 2px;
+    animation: progressFill 3s ease-out 2s forwards;
+}
+
+.progress-markers {
+    position: absolute;
+    top: -25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--ff-ui);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.progress-markers span {
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.progress-markers span.current {
+    opacity: 1;
+    color: var(--harmony-gold);
+    font-weight: 600;
+}
+
+/* 価値カードコンテナ */
+.value-cards-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin-bottom: 3rem;
+}
+
+.value-card {
+    position: absolute;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    cursor: pointer;
+}
+
+/* 各カードの位置設定 */
+.value-card[data-position="top"] {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    animation: cardSlideIn 0.8s ease-out 2.5s forwards;
+}
+
+.value-card[data-position="top-right"] {
+    top: 80px;
+    right: 0;
+    animation: cardSlideIn 0.8s ease-out 2.8s forwards;
+}
+
+.value-card[data-position="bottom-right"] {
+    bottom: 80px;
+    right: 0;
+    animation: cardSlideIn 0.8s ease-out 3.1s forwards;
+}
+
+.value-card[data-position="bottom-left"] {
+    bottom: 80px;
+    left: 0;
+    animation: cardSlideIn 0.8s ease-out 3.4s forwards;
+}
+
+.value-card[data-position="left"] {
+    top: 80px;
+    left: 0;
+    animation: cardSlideIn 0.8s ease-out 3.7s forwards;
+}
+
+/* ホバー効果 */
+.value-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+}
+
+.heritage-green {
+    border-color: var(--heritage-green);
+}
+
+.heritage-green:hover {
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.harmony-gold {
+    border-color: var(--harmony-gold);
+}
+
+.harmony-gold:hover {
+    background: linear-gradient(135deg, rgba(249, 168, 37, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.unity-blue {
+    border-color: var(--unity-blue);
+}
+
+.unity-blue:hover {
+    background: linear-gradient(135deg, rgba(25, 118, 210, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.wisdom-purple {
+    border-color: var(--wisdom-purple);
+}
+
+.wisdom-purple:hover {
+    background: linear-gradient(135deg, rgba(123, 31, 162, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+.inclusive-orange {
+    border-color: var(--inclusive-orange);
+}
+
+.inclusive-orange:hover {
+    background: linear-gradient(135deg, rgba(245, 124, 0, 0.1), rgba(255, 255, 255, 0.95));
+}
+
+/* カード内容 */
+.color-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.heritage-green .color-indicator {
+    background: var(--heritage-green);
+}
+
+.harmony-gold .color-indicator {
+    background: var(--harmony-gold);
+}
+
+.unity-blue .color-indicator {
+    background: var(--unity-blue);
+}
+
+.wisdom-purple .color-indicator {
+    background: var(--wisdom-purple);
+}
+
+.inclusive-orange .color-indicator {
+    background: var(--inclusive-orange);
+}
+
+.value-card h3 {
+    font-family: var(--ff-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.color-name {
+    font-family: var(--ff-ui);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.value-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.timeline-context {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    line-height: 1.4;
+}
+
+/* メインメッセージ */
+.hero-message {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main-phrase-container {
+    margin-bottom: 1.5rem;
+}
+
+.phrase {
+    font-family: var(--ff-heading);
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 0.3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    color: #333;
+}
+
+.phrase-1 {
+    animation: phraseSlideIn 0.8s ease-out 4s forwards;
+}
+
+.phrase-2 {
+    animation: phraseSlideIn 0.8s ease-out 4.3s forwards;
+}
+
+.phrase-3 {
+    animation: phraseSlideIn 0.8s ease-out 4.6s forwards;
+    color: var(--inclusive-orange);
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    margin-bottom: 1rem;
+}
+
+.subtitle-text {
+    font-family: var(--ff-body);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #555;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: subtitleSlideIn 0.8s ease-out 5s forwards;
+}
+
+.brand-tagline {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: taglineSlideIn 0.8s ease-out 5.4s forwards;
+}
+
+.tagline-text {
+    font-family: var(--ff-ui);
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    letter-spacing: 0.5px;
+}
+
+/* 融合段階コントロール */
+.fusion-controls {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 12px 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    animation: controlsSlideIn 0.8s ease-out 6s forwards;
+}
+
+.control-label {
+    font-family: var(--ff-ui);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
+    white-space: nowrap;
+}
+
+.stage-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.stage-btn {
+    background: transparent;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-family: var(--ff-ui);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.stage-btn:hover {
+    border-color: var(--harmony-gold);
+    color: var(--harmony-gold);
+}
+
+.stage-btn.active {
+    background: var(--harmony-gold);
+    border-color: var(--harmony-gold);
+    color: white;
+    font-weight: 600;
+}
+
+/* アニメーション定義 */
+@keyframes centerImageAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes timelineYearFade {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes progressFill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes cardSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes phraseSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtitleSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes taglineSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes controlsSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .value-cards-container {
+        width: 700px;
+        height: 500px;
+    }
+    
+    .value-card {
+        width: 240px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        padding: 100px 20px 60px;
+    }
+    
+    .center-image {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .value-cards-container {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-width: 400px;
+    }
+    
+    .value-card {
+        position: static !important;
+        width: 100%;
+        margin: 0;
+        transform: none !important;
+    }
+    
+    .phrase {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle-text {
+        font-size: 1.3rem;
+    }
+    
+    .fusion-controls {
+        position: static;
+        transform: none;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .center-image {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .phrase {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle-text {
+        font-size: 1.1rem;
+    }
+}
