@@ -452,32 +452,38 @@ img {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  gap: var(--space-lg);
 }
 
-/* 数学的に最適化されたメインメッセージ */
+/* メインメッセージ（標準） */
 .main-message {
-  margin-bottom: var(--vertical-rhythm-large);
-  
-  /* 視線誘導のための微細調整 */
-  transform: translateY(calc(var(--vertical-rhythm-small) * -0.5));
+  margin-bottom: var(--space-2xl);
+}
+
+/* 価値の下に配置されたメッセージ（コンパクト版） */
+.main-message-secondary {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  text-align: center;
 }
 
 .primary-message {
   font-family: var(--font-primary);
-  
-  /* 黄金比による最適なフォントサイズ */
-  font-size: clamp(2.2rem, calc(var(--true-viewport-height) / 20), 3.8rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 800;
-  
-  /* 数学的に美しい行間 */
-  line-height: calc(1 / var(--golden-ratio) + 0.6);
+  line-height: 1.2;
   
   color: var(--color-primary-text);
-  margin: 0 0 var(--vertical-rhythm-base) 0;
+  margin: 0 0 var(--space-lg) 0;
   letter-spacing: -0.03em;
   
-  /* 視覚的インパクトの強化 */
   text-shadow: 0 2px 4px rgba(255, 111, 0, 0.1);
+}
+
+/* コンパクト版のメッセージ */
+.primary-message-compact {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0 0 var(--space-md) 0;
 }
 
 .message-line {
@@ -497,17 +503,15 @@ img {
 
 .secondary-message {
   font-family: var(--font-secondary);
-  
-  /* メインメッセージとの黄金比関係 */
-  font-size: clamp(1.4rem, calc(var(--true-viewport-height) / 32), 2.1rem);
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
   font-weight: 500;
   
   color: var(--color-secondary-text);
-  margin: 0 0 var(--vertical-rhythm-large) 0;
+  margin: 0;
   
   opacity: 0;
   transform: translateX(20px);
-  animation: messageSlideIn 0.8s var(--ease-out) 2.0s forwards;
+  animation: messageSlideIn 0.8s var(--ease-out) 3.5s forwards;
 }
 
 /* 黄金比によるコンセプト説明の配置 */
@@ -540,19 +544,25 @@ img {
   margin-bottom: 0;
 }
 
-/* 5つの価値を強調したメインコンテンツ */
+/* 5つの価値を最優先表示するメインコンテンツ */
 .values-preview {
   margin-bottom: var(--space-2xl);
   
   opacity: 0;
   transform: translateY(20px);
-  animation: valuesPreviewAppear 0.8s var(--ease-out) 2.8s forwards;
+  animation: valuesPreviewAppear 0.8s var(--ease-out) 1.5s forwards;
 }
 
-/* 強調版のスタイル */
+/* 最優先表示版のスタイル */
 .values-preview-enhanced {
-  margin-top: var(--space-xl);
   margin-bottom: var(--space-3xl);
+}
+
+/* 価値を最初に表示するスタイル */
+.values-first {
+  order: -1;
+  margin-bottom: var(--space-4xl);
+  animation-delay: 0.8s; /* 早めに表示 */
 }
 
 .values-title {
