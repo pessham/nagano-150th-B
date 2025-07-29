@@ -4,12 +4,12 @@
    CSS Custom Properties (Design Tokens)
 ======================================== */
 :root {
-  /* イラストから抽出した華やかな9色カラーシステム */
-  --color-nature: #2E5D47;        /* 深い緑 - 自然 */
-  --color-culture: #E8A852;       /* 明るい黄橙 - 文化・風土 */
-  --color-community: #C95B3C;     /* 温かい赤橙 - コミュニティ */
-  --color-learning: #4A7BA7;      /* 知的な青 - 学び */
-  --color-craftsmanship: #6B4C93; /* 技術の紫 - 技・匠 */
+  /* イラストから抽出した華やかな9色カラーシステム（更新版） */
+  --color-nature: #8AE108;        /* 明るい緑 - 自然 */
+  --color-culture: #EC25A7;       /* マゼンダ - 文化・風土 */
+  --color-community: #F7E106;     /* 鮮やかな黄色 - コミュニティ */
+  --color-learning: #F9595C;      /* サーモンピンク - 学び */
+  --color-craftsmanship: #05C7F3; /* 明るい青 - 技・匠 */
   
   /* 追加カラフル色 */
   --color-vibrant-green: #4CAF50; /* 鮮やかな緑 */

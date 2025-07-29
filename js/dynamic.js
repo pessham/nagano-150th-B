@@ -444,11 +444,11 @@ class NaganoDynamicExperience {
 
   getValueColor(value) {
     const colors = {
-      nature: '#2E5D47',        // 深い緑
-      culture: '#E8A852',       // 明るい黄橙
-      community: '#C95B3C',     // 温かい赤橙
-      learning: '#4A7BA7',      // 知的な青
-      craftsmanship: '#6B4C93'  // 技術の紫
+      nature: '#8AE108',        // 明るい緑
+      culture: '#EC25A7',       // マゼンダ
+      community: '#F7E106',     // 鮮やかな黄色
+      learning: '#F9595C',      // サーモンピンク
+      craftsmanship: '#05C7F3'  // 明るい青
     };
     return colors[value] || '#FF6F00';
   }
