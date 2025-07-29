@@ -194,10 +194,9 @@ img {
 }
 
 /* ========================================
-   Hero Section - ダイナミック分割レイアウト
+   Hero Section - 中央配置レイアウト
 ======================================== */
 .hero-section {
-  /* プレミアム版の優雅な中央配置を採用 */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -215,15 +214,130 @@ img {
 }
 
 /* ========================================
-   左側：大型イラストエリア
+   中央配置コンテナ
 ======================================== */
-.hero-container {
+.hero-container-centered {
   max-width: var(--container-max-width);
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-4xl);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-main-area {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+/* メインメッセージ（上部配置） */
+.main-message-top {
+  margin-bottom: var(--space-lg);
+}
+
+.primary-message-centered {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: var(--space-md);
+  background: linear-gradient(135deg, var(--color-primary-text), var(--color-secondary-text));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* 中央グリッドレイアウト */
+.hero-visual-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto 2fr auto;
+  gap: var(--space-xl);
+  width: 100%;
+  max-width: 1000px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* 中央画像 */
+.main-illustration-center {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* 価値カード配置 */
+.value-card-positioned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-lg);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  transition: all var(--duration-normal) var(--ease-out);
+  cursor: pointer;
+  min-width: 180px;
+  max-width: 220px;
+  border: 2px solid transparent;
+}
+
+.value-card-positioned:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-accent);
+}
+
+/* 各カードの位置 */
+.value-card-top-left {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.value-card-top-center {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.value-card-top-right {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.value-card-bottom-left {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: end;
+}
+
+.value-card-bottom-right {
+  grid-column: 3;
+  grid-row: 3;
+  justify-self: start;
+}
+
+/* アクションボタン（中央配置） */
+.hero-actions-centered {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  margin-top: var(--space-xl);
 }
 
 .hero-visual-area {
