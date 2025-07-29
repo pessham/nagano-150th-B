@@ -254,20 +254,81 @@ img {
   justify-content: center;
 }
 
-.hero-illustration {
+/* SVGベースのイラスト */
+.hero-illustration-svg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: brightness(1.05) saturate(1.1);
-  opacity: 0;
-  transform: scale(0.95) translateY(30px);
-  animation: heroImageAppear 1.5s var(--ease-out) 0.3s forwards;
+  display: block;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
   transition: all var(--duration-slow) var(--ease-out);
 }
 
-.hero-illustration:hover {
+.hero-illustration-svg:hover {
   transform: scale(1.02);
-  filter: brightness(1.08) saturate(1.15);
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* 色パーツの順次登場アニメーション */
+.color-part {
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  transform-origin: center;
+  opacity: 0;
+  animation: partAppear 1.2s var(--ease-out) forwards;
+}
+
+/* 各パーツの登場タイミング */
+.part-nature {
+  animation-delay: 0.5s;
+}
+
+.part-culture {
+  animation-delay: 0.8s;
+}
+
+.part-community {
+  animation-delay: 1.1s;
+}
+
+.part-learning {
+  animation-delay: 1.4s;
+}
+
+.part-craftsmanship {
+  animation-delay: 1.7s;
+}
+
+/* 中央の光りエフェクト */
+.center-glow {
+  animation: centerGlowAppear 1s var(--ease-out) 2.2s forwards;
+}
+
+/* ホバー時のエフェクト */
+.color-part:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2) saturate(1.3) drop-shadow(0 0 20px currentColor);
+}
+
+/* 価値カードと連動したハイライト */
+.color-part.highlighted {
+  transform: scale(1.15);
+  filter: brightness(1.3) saturate(1.4) drop-shadow(0 0 25px currentColor);
+  animation: partPulse 2s ease-in-out infinite;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .hero-illustration-svg {
+    filter: drop-shadow(0 5px 20px rgba(0, 0, 0, 0.1));
+  }
+  
+  .color-part:hover {
+    transform: scale(1.08);
+  }
+  
+  .color-part.highlighted {
+    transform: scale(1.12);
+  }
 }
 
 /* インタラクティブポイント */
@@ -1076,10 +1137,50 @@ img {
 /* ========================================
    アニメーション定義
 ======================================== */
-@keyframes heroImageAppear {
-  to {
+/* パーツ登場アニメーション */
+@keyframes partAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(2deg);
+    filter: blur(1px);
+  }
+  100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+/* 中央光りアニメーション */
+@keyframes centerGlowAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+/* パルスアニメーション */
+@keyframes partPulse {
+  0%, 100% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.8;
   }
 }
 
