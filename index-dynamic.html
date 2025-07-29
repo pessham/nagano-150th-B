@@ -34,66 +34,31 @@
             <!-- 左側：大型イラストエリア -->
             <div class="hero-visual-area">
             <div class="main-illustration">
-                <!-- 順次登場する5つの色パーツSVG -->
-                <svg class="hero-illustration-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-                    <!-- 青パーツ（自然） -->
-                    <path class="color-part part-nature" data-value="nature" 
-                          d="M150 200 C100 150, 50 180, 80 250 C60 300, 120 350, 180 320 C220 340, 250 280, 200 240 C180 200, 150 200, 150 200 Z"
-                          fill="url(#gradient-nature)" opacity="0" />
-                    
-                    <!-- ピンクパーツ（文化） -->
-                    <path class="color-part part-culture" data-value="culture"
-                          d="M400 100 C380 50, 420 30, 450 80 C480 60, 520 90, 490 130 C520 170, 480 200, 440 180 C400 200, 360 160, 380 120 C360 100, 400 100, 400 100 Z"
-                          fill="url(#gradient-culture)" opacity="0" />
-                    
-                    <!-- 黄パーツ（コミュニティ） -->
-                    <path class="color-part part-community" data-value="community"
-                          d="M550 150 C600 120, 650 160, 620 210 C660 250, 620 300, 570 280 C530 310, 480 270, 510 230 C480 190, 520 170, 550 150, 550 150 Z"
-                          fill="url(#gradient-community)" opacity="0" />
-                    
-                    <!-- 緑パーツ（学び） -->
-                    <path class="color-part part-learning" data-value="learning"
-                          d="M600 350 C650 320, 680 360, 650 400 C680 440, 640 480, 590 460 C550 480, 520 440, 550 400 C520 360, 560 340, 600 350, 600 350 Z"
-                          fill="url(#gradient-learning)" opacity="0" />
-                    
-                    <!-- 赤パーツ（技） -->
-                    <path class="color-part part-craftsmanship" data-value="craftsmanship"
-                          d="M250 450 C200 420, 170 460, 200 500 C170 540, 210 580, 260 560 C300 580, 330 540, 300 500 C330 460, 290 440, 250 450, 250 450 Z"
-                          fill="url(#gradient-craftsmanship)" opacity="0" />
-                    
-                    <!-- グラデーション定義 -->
-                    <defs>
-                        <radialGradient id="gradient-nature" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#4FC3F7" />
-                            <stop offset="100%" stop-color="#2196F3" />
-                        </radialGradient>
-                        <radialGradient id="gradient-culture" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#FF4081" />
-                            <stop offset="100%" stop-color="#E91E63" />
-                        </radialGradient>
-                        <radialGradient id="gradient-community" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#FFEB3B" />
-                            <stop offset="100%" stop-color="#FFC107" />
-                        </radialGradient>
-                        <radialGradient id="gradient-learning" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#8BC34A" />
-                            <stop offset="100%" stop-color="#4CAF50" />
-                        </radialGradient>
-                        <radialGradient id="gradient-craftsmanship" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stop-color="#FF7043" />
-                            <stop offset="100%" stop-color="#FF5722" />
-                        </radialGradient>
-                    </defs>
-                    
-                    <!-- 中央の光りエフェクト -->
-                    <circle class="center-glow" cx="400" cy="300" r="30" fill="url(#center-gradient)" opacity="0" />
-                    <defs>
-                        <radialGradient id="center-gradient">
-                            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
-                            <stop offset="100%" stop-color="#FFD700" stop-opacity="0.3" />
-                        </radialGradient>
-                    </defs>
-                </svg>
+                <img src="assets/colorflu_image.png" alt="長野県150周年記念イラスト" class="hero-illustration">
+                
+                <!-- インタラクティブポイント -->
+                <div class="interactive-points">
+                    <div class="point" data-value="nature" style="top: 35%; left: 25%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                    </div>
+                    <div class="point" data-value="culture" style="top: 20%; left: 50%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                    </div>
+                    <div class="point" data-value="community" style="top: 30%; left: 75%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                    </div>
+                    <div class="point" data-value="learning" style="top: 65%; left: 70%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                    </div>
+                    <div class="point" data-value="craftsmanship" style="top: 75%; left: 35%;">
+                        <div class="point-pulse"></div>
+                        <div class="point-dot"></div>
+                    </div>
+                </div>
                 
                 <!-- 年表オーバーレイ -->
                 <div class="timeline-overlay">
@@ -341,6 +306,6 @@
         </div>
     </section>
 
-    <script src="js/dynamic-svg.js"></script>
+    <script src="js/dynamic.js"></script>
 </body>
 </html>
