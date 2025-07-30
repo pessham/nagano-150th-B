@@ -200,11 +200,11 @@ img {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   
   position: relative;
-  padding: var(--space-4xl) var(--container-padding) var(--space-5xl);
+  padding: var(--space-lg) var(--container-padding) var(--space-xl);
   background: linear-gradient(135deg, 
     #FFF8E1 0%,
     #FFE0B2 25%,
@@ -217,22 +217,22 @@ img {
    中央配置コンテナ
 ======================================== */
 .hero-container-centered {
-  max-width: var(--container-max-width);
+  max-width: 100vw;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
 }
 
 .hero-main-area {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-lg);
 }
 
 /* メインメッセージ（上部配置） */
@@ -252,26 +252,27 @@ img {
   color: transparent;
 }
 
-/* 中央グリッドレイアウト（大型拡大版） */
+/* 中央グリッドレイアウト（フルスクリーン版） */
 .hero-visual-grid {
-  display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: auto 4fr auto;
-  gap: var(--space-md);
-  width: 100%;
-  max-width: 1600px;
+  position: relative;
+  width: 95vw;
+  height: 90vh;
+  max-width: none;
+  max-height: none;
+  display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
-/* 中央画像（大型拡大） */
+/* 中央画像（フルサイズ） */
 .main-illustration-center {
-  grid-column: 2;
-  grid-row: 2;
   position: relative;
-  width: 100%;
-  max-width: 1200px;
-  aspect-ratio: 1;
+  width: 90vh;
+  height: 90vh;
+  max-width: 90vh;
+  max-height: 90vh;
+  min-width: 600px;
+  min-height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -463,47 +464,50 @@ img {
   filter: brightness(1.1) saturate(1.2);
 }
 
-/* 各カードの位置 */
+/* 各カードの絶対位置 */
 .value-card-top-left {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: end;
+  position: absolute;
+  top: 10%;
+  left: 5%;
 }
 
 .value-card-top-center {
-  grid-column: 2;
-  grid-row: 1;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .value-card-top-right {
-  grid-column: 3;
-  grid-row: 1;
-  justify-self: start;
+  position: absolute;
+  top: 10%;
+  right: 5%;
 }
 
 .value-card-bottom-left {
-  grid-column: 1;
-  grid-row: 3;
-  justify-self: end;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
 }
 
 .value-card-bottom-right {
-  grid-column: 3;
-  grid-row: 3;
-  justify-self: start;
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
 }
 
-/* アクションボタン（上部配置） */
-.hero-actions-top {
+/* アクションボタン（下部配置） */
+.hero-actions-bottom {
   display: flex;
   gap: var(--space-lg);
   justify-content: center;
+  margin-top: var(--space-xl);
   margin-bottom: var(--space-lg);
 }
 
-/* メインメッセージ（ボタン下配置） */
-.main-message-below-button {
-  margin-bottom: var(--space-2xl);
+/* メインメッセージ（下部配置） */
+.main-message-bottom {
+  margin-top: var(--space-lg);
 }
 
 /* アクションボタン（中央配置） */
