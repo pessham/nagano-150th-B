@@ -406,40 +406,30 @@ img {
   filter: drop-shadow(0 0 0 transparent);
 }
 
-/* 各カードの単色背景と浮き上がりアニメーション（新順序） */
+/* 各カードの白背景と浮き上がりアニメーション（新順序） */
 .value-card-bottom-right[data-value="nature"] {
-  background: #8AE108 !important;
-  color: white !important;
-  border: 3px solid #8AE108;
   animation: cardFloatUp 1.8s ease-out 1s forwards;
+  color: #333 !important;
 }
 
 .value-card-top-center[data-value="culture"] {
-  background: #EC25A7 !important;
-  color: white !important;
-  border: 3px solid #EC25A7;
   animation: cardFloatUp 1.8s ease-out 2s forwards;
+  color: #333 !important;
 }
 
 .value-card-top-left[data-value="craftsmanship"] {
-  background: #05C7F3 !important;
-  color: white !important;
-  border: 3px solid #05C7F3;
   animation: cardFloatUp 1.8s ease-out 3s forwards;
+  color: #333 !important;
 }
 
 .value-card-top-right[data-value="community"] {
-  background: #F7E106 !important;
-  color: #333 !important;
-  border: 3px solid #F7E106;
   animation: cardFloatUp 1.8s ease-out 4s forwards;
+  color: #333 !important;
 }
 
 .value-card-bottom-left[data-value="learning"] {
-  background: #F9595C !important;
-  color: white !important;
-  border: 3px solid #F9595C;
   animation: cardFloatUp 1.8s ease-out 5s forwards;
+  color: #333 !important;
 }
 
 /* 価値カード浮き上がりアニメーション */
@@ -468,37 +458,52 @@ img {
   filter: brightness(1.1) saturate(1.2);
 }
 
-/* 各カードの絶対位置 */
-.value-card-top-left {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-}
-
+/* 各カードの絶対位置 - 正五角形配置 */
+/* 多彩な風土で魅力を育む - 中央上部（前面） */
 .value-card-top-center {
   position: absolute;
-  top: 5%;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
-  margin-left: 0;
+  z-index: 10;
+  background: white !important;
+  border: 3px solid #EC25A7;
 }
 
+/* 確かな技で世界を変える - 左下 */
+.value-card-top-left {
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  background: white !important;
+  border: 3px solid #05C7F3;
+}
+
+/* みんなに居場所と出番をつくる - 右下 */
 .value-card-top-right {
   position: absolute;
-  top: 10%;
-  right: 5%;
+  top: 60%;
+  right: 15%;
+  background: white !important;
+  border: 3px solid #F7E106;
 }
 
+/* 一人ひとりの学びたいを叶える - 左中 */
 .value-card-bottom-left {
   position: absolute;
-  bottom: 10%;
-  left: 5%;
+  top: 40%;
+  left: 8%;
+  background: white !important;
+  border: 3px solid #F9595C;
 }
 
+/* 自然を守り共に生きる - 右中 */
 .value-card-bottom-right {
   position: absolute;
-  bottom: 10%;
-  right: 5%;
+  top: 40%;
+  right: 8%;
+  background: white !important;
+  border: 3px solid #8AE108;
 }
 
 /* アクションボタン（上部配置） */
@@ -1010,27 +1015,32 @@ img {
 }
 
 .nature-icon {
-  background: var(--color-nature) !important;
+  background: white !important;
+  border: 3px solid var(--color-nature) !important;
   box-shadow: 0 8px 25px rgba(138, 225, 8, 0.3);
 }
 
 .culture-icon {
-  background: var(--color-culture) !important;
+  background: white !important;
+  border: 3px solid var(--color-culture) !important;
   box-shadow: 0 8px 25px rgba(236, 37, 167, 0.3);
 }
 
 .community-icon {
-  background: var(--color-community) !important;
+  background: white !important;
+  border: 3px solid var(--color-community) !important;
   box-shadow: 0 8px 25px rgba(247, 225, 6, 0.3);
 }
 
 .learning-icon {
-  background: var(--color-learning) !important;
+  background: white !important;
+  border: 3px solid var(--color-learning) !important;
   box-shadow: 0 8px 25px rgba(249, 89, 92, 0.3);
 }
 
 .craftsmanship-icon {
-  background: var(--color-craftsmanship) !important;
+  background: white !important;
+  border: 3px solid var(--color-craftsmanship) !important;
   box-shadow: 0 8px 25px rgba(5, 199, 243, 0.3);
 }
 
