@@ -263,7 +263,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 /* 中央画像（フルサイズ強制） */
@@ -472,19 +472,19 @@ img {
   border: 3px solid #EC25A7;
 }
 
-/* 確かな技で世界を変える - 左上（正五角形修正） */
+/* 確かな技で世界を変える - 左上（画像より上） */
 .value-card-top-left {
   position: absolute;
-  top: 25%;
+  top: -10%;
   left: 12%;
   background: white !important;
   border: 3px solid #05C7F3;
 }
 
-/* みんなに居場所と出番をつくる - 右上（正五角形修正） */
+/* みんなに居場所と出番をつくる - 右上（画像より上） */
 .value-card-top-right {
   position: absolute;
-  top: 25%;
+  top: -10%;
   right: 12%;
   background: white !important;
   border: 3px solid #F7E106;
