@@ -447,10 +447,10 @@ class NaganoDynamicExperience {
    * パーツ合体アニメーションの設定
    */
   setupPartsAnimation() {
-    // 8秒後に合体アニメーションを開始（すべてのパーツ登場後）
+    // 6秒後に合体アニメーションを開始（緑から開始する新順序に合わせて調整）
     setTimeout(() => {
       this.startMergeAnimation();
-    }, 8000);
+    }, 6000);
   }
 
   startMergeAnimation() {

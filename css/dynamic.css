@@ -278,9 +278,6 @@ img {
   justify-content: center;
   transform-style: preserve-3d;
   perspective: 1000px;
-  /* デバッグ用 */
-  border: 3px solid red !important;
-  background: rgba(255, 0, 0, 0.1) !important;
 }
 
 /* パーツ別画像の基本スタイル（フルサイズ強制） */
@@ -297,8 +294,8 @@ img {
   transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* 各パーツの浮き上がりアニメーション */
-.part-craftsmanship {
+/* 各パーツの浮き上がりアニメーション（新順序） */
+.part-nature {
   animation: partFloatUp 1.8s ease-out 1s forwards;
 }
 
@@ -306,15 +303,15 @@ img {
   animation: partFloatUp 1.8s ease-out 2s forwards;
 }
 
-.part-community {
+.part-craftsmanship {
   animation: partFloatUp 1.8s ease-out 3s forwards;
 }
 
-.part-learning {
+.part-community {
   animation: partFloatUp 1.8s ease-out 4s forwards;
 }
 
-.part-nature {
+.part-learning {
   animation: partFloatUp 1.8s ease-out 5s forwards;
 }
 
@@ -409,39 +406,39 @@ img {
   filter: drop-shadow(0 0 0 transparent);
 }
 
-/* 各カードの白背景と浮き上がりアニメーション */
-.value-card-top-left[data-value="craftsmanship"] {
-  background: white;
-  color: #05C7F3;
-  border: 3px solid #05C7F3;
+/* 各カードの単色背景と浮き上がりアニメーション（新順序） */
+.value-card-bottom-right[data-value="nature"] {
+  background: #8AE108 !important;
+  color: white !important;
+  border: 3px solid #8AE108;
   animation: cardFloatUp 1.8s ease-out 1s forwards;
 }
 
 .value-card-top-center[data-value="culture"] {
-  background: white;
-  color: #EC25A7;
+  background: #EC25A7 !important;
+  color: white !important;
   border: 3px solid #EC25A7;
   animation: cardFloatUp 1.8s ease-out 2s forwards;
 }
 
-.value-card-top-right[data-value="community"] {
-  background: white;
-  color: #F7E106;
-  border: 3px solid #F7E106;
+.value-card-top-left[data-value="craftsmanship"] {
+  background: #05C7F3 !important;
+  color: white !important;
+  border: 3px solid #05C7F3;
   animation: cardFloatUp 1.8s ease-out 3s forwards;
 }
 
-.value-card-bottom-left[data-value="learning"] {
-  background: white;
-  color: #F9595C;
-  border: 3px solid #F9595C;
+.value-card-top-right[data-value="community"] {
+  background: #F7E106 !important;
+  color: #333 !important;
+  border: 3px solid #F7E106;
   animation: cardFloatUp 1.8s ease-out 4s forwards;
 }
 
-.value-card-bottom-right[data-value="nature"] {
-  background: white;
-  color: #8AE108;
-  border: 3px solid #8AE108;
+.value-card-bottom-left[data-value="learning"] {
+  background: #F9595C !important;
+  color: white !important;
+  border: 3px solid #F9595C;
   animation: cardFloatUp 1.8s ease-out 5s forwards;
 }
 
@@ -483,6 +480,7 @@ img {
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
+  margin-left: 0;
 }
 
 .value-card-top-right {
@@ -1012,43 +1010,28 @@ img {
 }
 
 .nature-icon {
-  background: linear-gradient(135deg, 
-    var(--color-nature) 0%, 
-    var(--color-vibrant-green) 50%,
-    #81C784 100%);
-  box-shadow: 0 8px 25px rgba(46, 93, 71, 0.3);
+  background: var(--color-nature) !important;
+  box-shadow: 0 8px 25px rgba(138, 225, 8, 0.3);
 }
 
 .culture-icon {
-  background: linear-gradient(135deg, 
-    var(--color-culture) 0%, 
-    var(--color-bright-orange) 50%,
-    #FFB74D 100%);
-  box-shadow: 0 8px 25px rgba(232, 168, 82, 0.3);
+  background: var(--color-culture) !important;
+  box-shadow: 0 8px 25px rgba(236, 37, 167, 0.3);
 }
 
 .community-icon {
-  background: linear-gradient(135deg, 
-    var(--color-community) 0%, 
-    var(--color-warm-red) 50%,
-    #EF5350 100%);
-  box-shadow: 0 8px 25px rgba(201, 91, 60, 0.3);
+  background: var(--color-community) !important;
+  box-shadow: 0 8px 25px rgba(247, 225, 6, 0.3);
 }
 
 .learning-icon {
-  background: linear-gradient(135deg, 
-    var(--color-learning) 0%, 
-    var(--color-sky-blue) 50%,
-    #64B5F6 100%);
-  box-shadow: 0 8px 25px rgba(74, 123, 167, 0.3);
+  background: var(--color-learning) !important;
+  box-shadow: 0 8px 25px rgba(249, 89, 92, 0.3);
 }
 
 .craftsmanship-icon {
-  background: linear-gradient(135deg, 
-    var(--color-craftsmanship) 0%, 
-    #9C27B0 50%,
-    #BA68C8 100%);
-  box-shadow: 0 8px 25px rgba(107, 76, 147, 0.3);
+  background: var(--color-craftsmanship) !important;
+  box-shadow: 0 8px 25px rgba(5, 199, 243, 0.3);
 }
 
 .card-icon::after {
