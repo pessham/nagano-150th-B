@@ -464,7 +464,7 @@ img {
 /* 多彩な風土で魅力を育む - 中央上部（前面） */
 .value-card-top-center {
   position: absolute;
-  top: 5%;
+  top: -5%;
   left: 50%;
   transform: translateX(-50%) !important;
   z-index: 10;
