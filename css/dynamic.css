@@ -263,7 +263,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 /* 中央画像（フルサイズ強制） */
@@ -280,6 +280,7 @@ img {
   justify-content: center;
   transform-style: preserve-3d;
   perspective: 1000px;
+  margin-top: 100px;
 }
 
 /* パーツ別画像の基本スタイル（フルサイズ強制） */
@@ -464,7 +465,7 @@ img {
 /* 多彩な風土で魅力を育む - 中央上部（前面） */
 .value-card-top-center {
   position: absolute;
-  top: -5%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%) !important;
   z-index: 10;
@@ -472,20 +473,20 @@ img {
   border: 3px solid #EC25A7;
 }
 
-/* 確かな技で世界を変える - 左上（画像より上） */
+/* 確かな技で世界を変える - 左上（画像上） */
 .value-card-top-left {
   position: absolute;
-  top: -10%;
-  left: 12%;
+  top: 25%;
+  left: 15%;
   background: white !important;
   border: 3px solid #05C7F3;
 }
 
-/* みんなに居場所と出番をつくる - 右上（画像より上） */
+/* みんなに居場所と出番をつくる - 右上（画像上） */
 .value-card-top-right {
   position: absolute;
-  top: -10%;
-  right: 12%;
+  top: 25%;
+  right: 15%;
   background: white !important;
   border: 3px solid #F7E106;
 }
@@ -493,8 +494,8 @@ img {
 /* 一人ひとりの学びたいを叶える - 左下（正五角形修正） */
 .value-card-bottom-left {
   position: absolute;
-  top: 75%;
-  left: 20%;
+  top: 70%;
+  left: 25%;
   background: white !important;
   border: 3px solid #F9595C;
 }
@@ -502,8 +503,8 @@ img {
 /* 自然を守り共に生きる - 右下（正五角形修正） */
 .value-card-bottom-right {
   position: absolute;
-  top: 75%;
-  right: 20%;
+  top: 70%;
+  right: 25%;
   background: white !important;
   border: 3px solid #8AE108;
 }
