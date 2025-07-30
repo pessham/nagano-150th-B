@@ -480,6 +480,7 @@ img {
   left: 15%;
   background: white !important;
   border: 3px solid #05C7F3;
+  z-index: 15;
 }
 
 /* みんなに居場所と出番をつくる - 右上（画像上） */
@@ -489,6 +490,7 @@ img {
   right: 15%;
   background: white !important;
   border: 3px solid #F7E106;
+  z-index: 15;
 }
 
 /* 一人ひとりの学びたいを叶える - 左下（正五角形修正） */
