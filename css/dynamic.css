@@ -252,25 +252,25 @@ img {
   color: transparent;
 }
 
-/* 中央グリッドレイアウト */
+/* 中央グリッドレイアウト（拡大版） */
 .hero-visual-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto 2fr auto;
-  gap: var(--space-xl);
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto 3fr auto;
+  gap: var(--space-lg);
   width: 100%;
-  max-width: 1000px;
+  max-width: 1400px;
   align-items: center;
   justify-items: center;
 }
 
-/* 中央画像 */
+/* 中央画像（拡大） */
 .main-illustration-center {
   grid-column: 2;
   grid-row: 2;
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 800px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -390,10 +390,9 @@ img {
   box-shadow: var(--shadow-md);
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
-  min-width: 180px;
-  max-width: 220px;
-  border: 3px solid rgba(255, 255, 255, 0.8);
-  color: white;
+  min-width: 200px;
+  max-width: 280px;
+  background: white;
   font-weight: 600;
   
   /* 初期状態: 非表示 */
@@ -402,31 +401,39 @@ img {
   filter: drop-shadow(0 0 0 transparent);
 }
 
-/* 各カードの背景色と浮き上がりアニメーション */
+/* 各カードの白背景と浮き上がりアニメーション */
 .value-card-top-left[data-value="craftsmanship"] {
-  background: #05C7F3;
+  background: white;
+  color: #05C7F3;
+  border: 3px solid #05C7F3;
   animation: cardFloatUp 1.8s ease-out 1s forwards;
 }
 
 .value-card-top-center[data-value="culture"] {
-  background: #EC25A7;
+  background: white;
+  color: #EC25A7;
+  border: 3px solid #EC25A7;
   animation: cardFloatUp 1.8s ease-out 2s forwards;
 }
 
 .value-card-top-right[data-value="community"] {
-  background: #F7E106;
-  color: #333;
+  background: white;
+  color: #F7E106;
+  border: 3px solid #F7E106;
   animation: cardFloatUp 1.8s ease-out 3s forwards;
 }
 
 .value-card-bottom-left[data-value="learning"] {
-  background: #F9595C;
+  background: white;
+  color: #F9595C;
+  border: 3px solid #F9595C;
   animation: cardFloatUp 1.8s ease-out 4s forwards;
 }
 
 .value-card-bottom-right[data-value="nature"] {
-  background: #8AE108;
-  color: #333;
+  background: white;
+  color: #8AE108;
+  border: 3px solid #8AE108;
   animation: cardFloatUp 1.8s ease-out 5s forwards;
 }
 
