@@ -252,25 +252,25 @@ img {
   color: transparent;
 }
 
-/* 中央グリッドレイアウト（拡大版） */
+/* 中央グリッドレイアウト（大型拡大版） */
 .hero-visual-grid {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: auto 3fr auto;
-  gap: var(--space-lg);
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: auto 4fr auto;
+  gap: var(--space-md);
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   align-items: center;
   justify-items: center;
 }
 
-/* 中央画像（拡大） */
+/* 中央画像（大型拡大） */
 .main-illustration-center {
   grid-column: 2;
   grid-row: 2;
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -491,6 +491,19 @@ img {
   grid-column: 3;
   grid-row: 3;
   justify-self: start;
+}
+
+/* アクションボタン（上部配置） */
+.hero-actions-top {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* メインメッセージ（ボタン下配置） */
+.main-message-below-button {
+  margin-bottom: var(--space-2xl);
 }
 
 /* アクションボタン（中央配置） */
