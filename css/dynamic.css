@@ -279,6 +279,104 @@ img {
   perspective: 1000px;
 }
 
+/* パーツ別画像の基本スタイル */
+.part-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 各パーツの初期位置 */
+.part-craftsmanship {
+  transform: translate(-120%, -120%) scale(0.3);
+  animation: partFadeIn 1.2s ease-out 0.5s forwards;
+}
+
+.part-culture {
+  transform: translate(0%, -150%) scale(0.3);
+  animation: partFadeIn 1.2s ease-out 0.8s forwards;
+}
+
+.part-community {
+  transform: translate(120%, -120%) scale(0.3);
+  animation: partFadeIn 1.2s ease-out 1.1s forwards;
+}
+
+.part-learning {
+  transform: translate(-120%, 120%) scale(0.3);
+  animation: partFadeIn 1.2s ease-out 1.4s forwards;
+}
+
+.part-nature {
+  transform: translate(120%, 120%) scale(0.3);
+  animation: partFadeIn 1.2s ease-out 1.7s forwards;
+}
+
+/* 完成画像 */
+.hero-illustration-final {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: finalImageAppear 1s ease-out 5s forwards;
+}
+
+/* パーツフェードインアニメーション */
+@keyframes partFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0%, 0%) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* パーツ合体アニメーション */
+@keyframes partsMerge {
+  0% {
+    opacity: 1;
+    transform: translate(0%, 0%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(0%, 0%) scale(1.1);
+    filter: brightness(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0%, 0%) scale(0.95);
+    filter: blur(3px);
+  }
+}
+
+/* 最終画像登場アニメーション */
+@keyframes finalImageAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* 合体フェーズのクラス */
+.parts-merging .part-image {
+  animation: partsMerge 1.5s ease-out forwards;
+}
+
 /* 価値カード配置 */
 .value-card-positioned {
   display: flex;
@@ -478,6 +576,8 @@ img {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 
 .point {

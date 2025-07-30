@@ -18,6 +18,7 @@ class NaganoDynamicExperience {
     this.setupImageInteraction();
     this.setupAccessibility();
     this.setupIntersectionObserver();
+    this.setupPartsAnimation();
     
     console.log('長野県150周年 ダイナミック体験 初期化完了');
   }
@@ -440,6 +441,47 @@ class NaganoDynamicExperience {
         }
       });
     }, 2000);
+  }
+
+  /**
+   * パーツ合体アニメーションの設定
+   */
+  setupPartsAnimation() {
+    // 4秒後に合体アニメーションを開始
+    setTimeout(() => {
+      this.startMergeAnimation();
+    }, 4000);
+  }
+
+  startMergeAnimation() {
+    const mainIllustration = document.querySelector('.main-illustration-center');
+    const partImages = document.querySelectorAll('.part-image');
+    const finalImage = document.querySelector('.hero-illustration-final');
+    
+    if (!mainIllustration || !partImages.length || !finalImage) return;
+
+    // パーツ合体クラスを追加
+    mainIllustration.classList.add('parts-merging');
+    
+    // 1.5秒後に最終画像を表示
+    setTimeout(() => {
+      finalImage.style.opacity = '1';
+      finalImage.style.transform = 'scale(1)';
+      
+      // パーツ画像を完全に非表示
+      partImages.forEach(part => {
+        part.style.display = 'none';
+      });
+      
+      // インタラクティブポイントを有効化
+      const interactivePoints = document.querySelector('.interactive-points');
+      if (interactivePoints) {
+        interactivePoints.style.pointerEvents = 'all';
+        interactivePoints.style.opacity = '1';
+      }
+      
+      console.log('パーツ合体アニメーション完了');
+    }, 1500);
   }
 
   getValueColor(value) {
