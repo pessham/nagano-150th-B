@@ -262,6 +262,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 /* 中央画像（フルサイズ強制） */
@@ -512,11 +513,13 @@ img {
   gap: var(--space-lg);
   justify-content: center;
   margin-bottom: var(--space-lg);
+  margin-top: 50px;
 }
 
 /* メインメッセージ（上部配置） */
 .main-message-top {
   margin-bottom: var(--space-xl);
+  margin-top: 50px;
 }
 
 /* アクションボタン（中央配置） */
