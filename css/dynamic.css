@@ -398,8 +398,7 @@ img {
   box-shadow: var(--shadow-md);
   transition: all var(--duration-normal) var(--ease-out);
   cursor: pointer;
-  min-width: 200px;
-  max-width: 280px;
+  width: clamp(180px, 15vw, 250px);
   background: white;
   font-weight: 600;
   
@@ -908,7 +907,6 @@ img {
 .line-2 { animation-delay: 1.3s; }
 .line-3 { 
   animation-delay: 1.6s; 
-  color: var(--color-accent);
   font-weight: 900;
 }
 
@@ -1051,39 +1049,31 @@ img {
 }
 
 .card-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
   flex-shrink: 0;
   position: relative;
-  
-  /* 強調版ではより大きなアイコン */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .nature-icon {
   background: var(--color-nature) !important;
-  box-shadow: 0 8px 25px rgba(138, 225, 8, 0.3);
 }
 
 .culture-icon {
   background: var(--color-culture) !important;
-  box-shadow: 0 8px 25px rgba(236, 37, 167, 0.3);
 }
 
 .community-icon {
   background: var(--color-community) !important;
-  box-shadow: 0 8px 25px rgba(247, 225, 6, 0.3);
 }
 
 .learning-icon {
   background: var(--color-learning) !important;
-  box-shadow: 0 8px 25px rgba(249, 89, 92, 0.3);
 }
 
 .craftsmanship-icon {
   background: var(--color-craftsmanship) !important;
-  box-shadow: 0 8px 25px rgba(5, 199, 243, 0.3);
 }
 
 .card-icon::after {
@@ -1396,7 +1386,7 @@ img {
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--color-secondary-text);
-  background: var(--color-background-soft);
+  background: white;
   padding: var(--space-xs) var(--space-sm);
   border-radius: 20px;
   border: 1px solid var(--color-border);
@@ -1661,12 +1651,17 @@ img {
   }
   
   .card-icon {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
   }
   
   .card-title {
     font-size: 1rem;
+  }
+  
+  .value-card-positioned {
+    width: clamp(160px, 25vw, 200px);
+    padding: var(--space-md);
   }
   
   .hero-actions {
@@ -1708,5 +1703,15 @@ img {
   
   .interactive-points .point {
     transform: scale(0.8);
+  }
+  
+  .value-card-positioned {
+    width: clamp(140px, 30vw, 180px);
+    padding: var(--space-sm);
+  }
+  
+  .card-icon {
+    width: 36px;
+    height: 36px;
   }
 }
