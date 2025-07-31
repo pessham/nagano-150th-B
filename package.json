@@ -1,0 +1,12 @@
+{
+  "name": "nagano-150th-b",
+  "version": "1.0.0",
+  "description": "長野県150周年記念事業サイト",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site served'"
+  },
+  "author": "",
+  "license": "ISC"
+}
