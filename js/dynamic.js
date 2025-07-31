@@ -480,7 +480,7 @@ class NaganoDynamicExperience {
         interactivePoints.style.opacity = '1';
       }
       
-      console.log('パーツ合体アニメーション完了');
+      console.log('パーツ合体アニメーション完了 - ビデオ機能なし');
     }, 1500);
   }
 
